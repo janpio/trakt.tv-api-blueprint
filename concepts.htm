@@ -1,0 +1,75 @@
+<h3 id="concepts">Concepts</h3>
+<p>The API only <a href="http://docs.trakt.apiary.io/#introduction/terminology">defines some terms in „Terminology“</a>, but there is a lot more to understand what there is and how it is all connected:</p>
+<ul>
+	<li>There are <strong data-class="users">Users</strong> and objects: <strong data-class="movies">Movies</strong>, <strong data-class="shows">Shows</strong> with <strong data-class="seasons">Seasons</strong> and <strong data-class="episodes">Episodes</strong>.</li>
+	<li class="users">Users
+		<ul>
+			<li>Users can <strong data-class="watch">watch</strong> things and mark them <em data-class="watching">watching</em>, and later <em data-class="watched">watched</em>:
+				<ul>
+					<li class="watch"><em>Users</em> can <strong data-class="checkin">checkin</strong> to or <strong data-class="scrobble">scrobble</strong> <em>movies </em>and <em>episodes.</em> These are then first marked as <em>watching</em>, later as <em>watched</em> after the runtime (complicated, read details in docs).</li>
+					<li class="watch"><em>Users</em> can additionally <strong data-class="add-history">add to history</strong> for <em>movies</em>, <em>shows</em>, <em>seasons</em> and <em>episodes</em> to mark them as <em>watched</em> instantly.</li>
+				</ul>
+			</li>
+			<li><em>Users </em>can create and have multiple <strong data-class="lists">Lists</strong> and have one <strong data-class="collection">Collection</strong> and one<strong data-class="watchlist"> Watchlist</strong> (where they can add <em>movies</em>, <em>shows</em>, <em>seasons</em>, or <em>episodes</em>).</li>
+			<li><em>Users</em> can write <strong data-class="comments">Comments</strong> on <em>movies</em>, <em>shows</em>, <em>seasons</em>, <em>episodes</em>, or <em>lists</em>.
+				<ul class="comments">
+					<li><em>Users </em>can create <strong data-class="replies">Replies</strong> and <strong data-class="likes">Likes</strong> <em>on comments </em>and<em> lists.</em></li>
+				</ul>
+			</li>
+			<li><em>Users</em> can create <strong data-class="ratings">Ratings</strong> on <em>movies</em>, <em>shows</em>,<em> seasons</em> and <em>episode. </em></li>
+			<li><em>Users</em> have <strong data-class="settings">Settings</strong> and a<strong data-class="profile"> Profile</strong></li>
+			<li><em>Users</em> can <strong data-class="follow">follow</strong> other <em>users</em>
+				<ul class="follow">
+					<li>This creates <strong data-class="follower-requests">Follower Requests</strong> and <em>users</em> eventually become <strong data-class="followers">Followers</strong>, <strong data-class="following">Following</strong> and <strong data-class="friends">Friends</strong></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Objects
+		<ul>
+			<li>There is additional information for some objects:
+				<ul>
+					<li><strong data-class="summary">Summary</strong> for <em>movies</em>, <em>people</em>, <em>shows</em>, <em>seasons</em> and <em>episodes</em> collect all known information about them</li>
+					<li><strong data-class="aliases">Aliases</strong> of <em>movies</em> and <em>shows</em></li>
+					<li class="movies"><strong data-class="releases">Releases</strong> of <em>movies</em></li>
+					<li><strong data-class="translations">Translations</strong> of <em>movies</em>, <em>shows</em> and <em>episodes </em></li>
+					<li><strong data-class="people">People</strong> are cast and crew of <em>shows</em> and <em>movies</em></li>
+				</ul>
+			</li>
+			<li><strong data-class="search">Search</strong> can look for <em>movies</em>, <em>shows</em>, <em>episodes</em>, <em>people</em>, and <em>lists</em> by text or ID.</li>
+			<li><strong data-class="related">Related</strong> objects are calculated for <em>movies </em>and <em>shows</em>.</li>
+			<li><strong data-class="stats">Stats</strong> are calculated for <em>movies</em>, <em>shows</em>, <em>seasons</em>, <em>episodes</em> and <em>users</em>.</li>
+		</ul>
+	</li>
+	<li class="users">Users and Objects
+		<ul>
+			<li><strong data-class="history">History</strong> <span class="scrobble">and <strong data-class="playback">Playback</strong></span> are calculated based on <em>checkins</em> and <em>scrobbles</em> (=<em> movies </em>and <em>episodes </em>watched) and manual <em>„add to history"</em>.</li>
+			<li><strong data-class="last-activities">Last Activities</strong> are collected from <em>history</em> and all other <em>user</em> activities (comments, replies, likes, ratings).</li>
+			<li>Based on the <em>releases</em> of objects and the <em>history</em> of the <em>user</em> there are <strong data-class="calendars">Calendars</strong> for <em>shows </em>and <em>episodes</em>.</li>
+			<li><strong data-class="recommendations">Recommendations</strong> are given to <em>users</em> for <em>movies</em> and <em>shows.</em></li>
+			<li><strong>Collection Progress</strong> and <strong>Watch Progress </strong>is calculated for <em>users</em> for <em>shows</em> and their<em> episodes.</em></li>
+			<li><em>Users</em> can create<strong data-class="hidden"> Hidden Items</strong> to hide things (<em>movies, shows </em>or<em> episodes</em>) in <em>calendars</em>, <em>collection progress</em>, <em>watch progress</em> <em>and recommendations.</em></li>
+		</ul>
+	</li>
+</ul>
+<p>Use the checkboxes next to the terms to deactivate them in the list below. You can also set if they only should be deactivated or completely hidden. <label><i>Hide deactivated items:</i> <input type="checkbox" onchange="toggleHide(event);"></label> </p>
+
+<h3 id="emojis">Emojis Legend</h3>
+<p>These Emojis are used in the official documentation to indicate what functionality is offered by or needed for an endpoint.</p>
+<ul>
+	<li>📄 = <a href="http://docs.trakt.apiary.io/#introduction/pagination">Pagination</a>
+		<ul>
+			<li>📄? = optional</li>
+		</ul>
+	</li>
+	<li>✨ = <a href="http://docs.trakt.apiary.io/#introduction/extended-info">Extended Info</a>
+	</li>
+	<li>🎚 = <a href="http://docs.trakt.apiary.io/#introduction/filters">Filters</a>
+	</li>
+	<li>🔒 = <a href="http://docs.trakt.apiary.io/#reference/authentication-oauth">OAuth</a>
+		<ul>
+			<li>🔒? = optional</li>
+			<li>🔒! = required</li>
+		</ul>
+	</li>
+</ul>
