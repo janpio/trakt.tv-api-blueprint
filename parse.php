@@ -299,9 +299,9 @@ function getMiddleLi($group, $thing) {
 function getInnerLi($group, $thing, $name, $details) {
 	#$classname = getClassstring($name);
 	echo '<li>';
-	#echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>';
+	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
-	#echo $details['intro'];
+	echo $details['intro'];
 	echo '</li>';
 }
 function getUrlString($string) {
