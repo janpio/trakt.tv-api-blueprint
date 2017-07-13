@@ -292,52 +292,83 @@ function getClassstring($class) {
 function getReturnTypes($text) {
 	$returns = array();
 	$possible = array(
-		'list of shows' => array('Returns all shows', 'Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
-		'list of movies' => array('Returns all movies', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
-		'comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
-		'list of replies' => array('Returns all replies'),
-		'list of comments' => array('Returns all top level comments', 'Returns comments'),
-		'movie' => array('Returns a single movie'),
-		'list of aliases' => array('Returns all title aliases'),
-		'list of releases' => array('Returns all releases'),
-		'list of translations' => array('Returns all translations'),
-		'list of lists' => array('Returns all lists', 'Returns all custom lists'),
-		'object of cast (list of people) + crew (object of lists of people)' => array('Returns all cast and crew'),
-		'ratings (calculated)' => array('Returns rating (between 0 and 10) and distribution'),
-		'stats' => array('Returns lots of'),
-		'list of users' => array('Returns all users'),
-		'person' => array('Returns a single person'),
-		'list of results (object with movie, show, episode, person or list)' => array('Search', 'Lookup item'),
-		'show' => array('Returns a single shows'),
-		'episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
-		'list of seasons' => array('Returns all seasons'),
-		'list of episodes' => array('Returns all episodes'),
-		'user' => array('Get a user'),
-		'list of collected items (object with movie, show, season, or episode)' => array('Get all collected items'), // merge with list of listed items?
-		'list' => array('Returns a single custom list', 'Create a new custom list', 'Update a custom list'),
-		'list of listed items (object with movie, show, episode, person or list)' => array('Get all items on a custom list'),
-		'list of followers/ings (object with user)' => array('Returns all followers', 'Returns all user\'s they follow'), // probably two different responses?
-		'list of friends (object with user)' => array('Returns all friends'),
-		'list of watched (object with movie, episode)' => array('Returns movies and episodes'),
-		'list of watchlisted items (object with movie, show, season, episode)' => array('Returns all items in a user\'s watchlist'),
-		'watching (object with movie, episode)' => array('Returns a movie or episode if the user is currently watching '),
-		'list of watched (object with movie, show, seasons)' => array('Returns all movies or shows a user has watched'), 
-		'userstats' => array('Returns stats about the movies, shows, and episodes a user'),
-		'history (objet with movie, episode)' => array('Check into a movie or episode'),
+		// show
+		'Show' => array('Returns a single shows'),
+		'Show[]' => array('Returns all shows', 'Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
+		'Season[]' => array('Returns all seasons'),
+		'Episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
+		'Episode[]' => array('Returns all episodes'),
+		
+		// movie
+		'Movie' => array('Returns a single movie'),
+		'Movie[]' => array('Returns all movies', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
+		
+		// comment
+		'Comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
+		'Comment[]' => array('Returns all top level comments', 'Returns comments', 'Returns all replies'),
+		
+		// user
+		'User' => array('Get a user'),
+		'User[]' => array('Returns all users'),
+		
+		// follow
+		'Follow-request[]' => array('List a user\'s pending follow requests'),
+		'Follower' => array('Approve a follower', 'If the user has a private profile'),
+		'Followers/ing[] (object with User)' => array('Returns all followers', 'Returns all user\'s they follow'), // probably two different responses?
+		'Friend[] (object with User)' => array('Returns all friends'),
+		
+		// list
+		'List' => array('Returns a single custom list', 'Create a new custom list', 'Update a custom list'),
+		'List[]' => array('Returns all lists', 'Returns all custom lists'),
+		'Listed item[] (object with Movie, Show, Episode, Person or List)' => array('Get all items on a custom list'),
+		'Collected item[] (object with Movie, Show, Season, or Episode)' => array('Get all collected items'),
+		'Watchlisted item[] (object with Movie, Show, Season, or Episode)' => array('Returns all items in a user\'s watchlist'),
+		
+		// people
+		'Person' => array('Returns a single person'),
+		'People (object of cast (Person[]) + crew (object of Person[]))' => array('Returns all cast and crew'),
+		'Roles (object of cast (Movie[]) + crew (object of Movie[]))' => array('Returns all movies where this person'),
+		'Roles (object of cast (Show[]) + crew (object of Show[]))' => array('Returns all shows where this person'),
+		
+		// hidden
+		'Hidden item[] (object with Movie, Show, Episode)' => array('Get hidden items'),
+		'Liked item[] (object with Comment, List)' => array('Get items a user likes'),
+	
+		// scrobble
+		'Scrobble' => array('Use this method when the video'),
+		'Playback[]' => array('Whenever a scrobble is paused'),
+		
+		// watch
+		'Watching (object with Movie, Episode)' => array('Returns a movie or episode if the user is currently watching '),
+		'Watched[] (object with Movie, Show, Seasons)' => array('Returns all movies or shows a user has watched'), 
+		'History (object with Movie, Episode)' => array('Check into a movie or episode'),
+		'History[]' => array('Returns movies and episodes that a user has watched'),
+		'Activity' => array('This method is a useful first step'),
+		
+		// progress
+		'Progress (object with Season[], Episode (next_episode))' => array('Returns collection progress', 'Returns watched progress'),
+				
+		// search
+		'Result[] (object with Movie, Show, Episode, Person or List)' => array('Search', 'Lookup item'),
+
+				
+		// master-data
+		'Certifications' => array('Get a list of all certifications'),
+		'Genre[]' => array('Get a list of all genres'),
+		'Network[]' => array('Get a list of all TV'),
+		
+		// other
+		'Alias[]' => array('Returns all title aliases'),
+		'Release[]' => array('Returns all releases'),
+		'Translation[]' => array('Returns all translations'),
+		'Ratings (calculated)' => array('Returns rating (between 0 and 10) and distribution'),
+		'Stats' => array('Returns lots of'),
+	
+		'Userstats' => array('Returns stats about the movies, shows, and episodes a user'),
+		'Settings' => array('Get the user\'s settings'),
+		
+		'Operation result (object with added, updated, existing, deleted, not_found)' => array('Add items to a user\'s collection', 'Remove one or more items from a user\'s collection.', 'Add items to a user\'s watch history.', 'Remove items from a user\'s watch history', 'Rate one or more items', 'Remove ratings', 'Add one of more items to a user\'s watchlist.', 'Remove one or more items from a user\'s watchlist.', 'Hide items for a specific section', 'Unhide items for a specific section', 'Add one or more items to a custom list', 'Remove one or more items from a custom list'),
 		'-' => array('Votes help determine'),
-		'scrobble' => array('Use this method when the video'),
-		'progress (object with seasons, next_episode)' => array('Returns collection progress', 'Returns watched progress'),
-		'activity' => array('This method is a useful first step'),
-		'playback' => array('Whenever a scrobble is paused'), // Scrobble?
-		'operation result (object with added, updated, existing, deleted, not_found)' => array('Add items to a user\'s collection', 'Remove one or more items from a user\'s collection.', 'Add items to a user\'s watch history.', 'Remove items from a user\'s watch history', 'Rate one or more items', 'Remove ratings', 'Add one of more items to a user\'s watchlist.', 'Remove one or more items from a user\'s watchlist.', 'Hide items for a specific section', 'Unhide items for a specific section', 'Add one or more items to a custom list', 'Remove one or more items from a custom list'),
-		'settings' => array('Get the user\'s settings'),
-		'list of follow-requests' => array('List a user\'s pending follow requests'),
-		'follower' => array('Approve a follower', 'If the user has a private profile'),
-		'list of hidden items (object with movie, ???)' => array('Get hidden items'), // TODO
-		'list of liked items (object with comment, ???)' => array('Get items a user likes'),
-		'certifications' => array('Get a list of all certifications'),
-		'list of genres' => array('Get a list of all genres'),
-		'list of networks' => array('Get a list of all TV'),
 		
 		# check again in output if all "Returns all movies or shows" are correct!
 	);
