@@ -16,6 +16,7 @@ body {
 	max-width: 800px;
 	margin:auto;
 }
+
 .light { background-color:grey; color:#ccc; }
 .deactivated {
 	transition: opacity 1s;
@@ -30,6 +31,12 @@ body {
 }
 .hide {
 	display: none;
+}
+
+a.anchor::after {
+    content: '#';
+    margin-left: 5px;
+    margin-right: -5px;
 }
 </style>
 <script>
@@ -97,6 +104,33 @@ function addCheckboxes() {
 		} else {
 			showElementsWithClass(classname);
 		}
+	}
+	
+	// set hideDeactivated
+	var cookie = getCookie('hideDeactivated');		
+	const input = document.getElementById('hideDeactivated');
+	// set correct setting (per cookie)
+	if(cookie == "unchecked") {
+		input.removeAttribute('checked');
+	} else {
+		input.setAttribute('checked', 'checked');
+		hideDeactivated('checked');
+	}
+	
+	// move back to anchor
+    var url = location.href;
+	var hash = window.location.hash;
+	if(hash != null) {
+	console.log('try to scroll!');
+		//location.href = hash;  
+		
+		
+		var h = hash.replace("#", "");
+		var top = document.getElementById(h).offsetTop; //Getting Y of target element
+		window.scrollTo(0, top);  
+		
+		
+		//document.getElementById(h).scrollIntoView();
 	}
 }
 
@@ -173,28 +207,43 @@ ready(addCheckboxes);
 
 
 
-function toggleHide(e) {
-	var box = e.target;
+function hideDeactivated(checked) {
+	console.log('hideDeactivated');
+	//
 	els = document.getElementsByClassName('deactivated');
 	for (var i = 0; i < els.length; i++) {
 		var el = els[i];
-		if (box.checked) {
+		if (checked) {
 			el.classList.add('hide');
 		} else {
 			el.classList.remove('hide');
 		}
 	}
-	
+	// 
 	els = document.getElementsByClassName('debug');
 	for (var i = 0; i < els.length; i++) {
 		var el = els[i];
-		if (box.checked) {
+		if (checked) {
 			el.classList.add('hide');
 		} else {
 			el.classList.remove('hide');
 		}
 	}
+}
+
+function toggleHide(e) {
+	var box = e.target;
+	hideDeactivated(box.checked);
 	
+	// set cookie
+	targetValue = "unchecked"
+	if (box.checked) {
+		targetValue = "checked"
+	} else {
+		targetValue = "unchecked"
+	}	
+	console.log('cookie: hideDeactivated =', targetValue);
+	setCookie('hideDeactivated', targetValue, 365);
 }
 </script>
 

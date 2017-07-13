@@ -301,7 +301,7 @@ function getReturnTypes($text) {
 		
 		// movie
 		'Movie' => array('Returns a single movie'),
-		'Movie[]' => array('Returns all movies', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
+		'Movie[]' => array('Returns all movies with a', 'Returns all movies being ', 'Returns all movies updated', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
 		
 		// comment
 		'Comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
@@ -387,18 +387,27 @@ function _string_includes_from_array($string, $array) {
 	}
 	return false;
 }
-function getLi($group) {
+function getIdString($key, $param1, $param2 = null, $param3 = null) {
+	$foo = getUrlString($key).'-'.getUrlString($param1);
+	if($param2) $foo .= '-'.getUrlString($param2);
+	if($param3) $foo .= '-'.getUrlString($param3);
+	return $foo;
+}
+function getLi($key, $group) {
 	$classname = getClassstring($group);
-	return '<li class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'">'.$group.'</a>';
+	$idstring = getIdString($key, $group);
+	return '<li id="'.$idstring.'" class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'">'.$group.'</a><a class="anchor" href="#'.$idstring.'"></a>';
 }
-function getMiddleLi($group, $thing) {
+function getMiddleLi($key, $group, $thing) {
 	$classname = getClassstring($thing);
-	echo '<li class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'">'.$thing.'</a>';
+	$idstring = getIdString($key, $group, $thing);
+	echo '<li id="'.getIdString($key, $group, $thing).'" class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'">'.$thing.'</a><a class="anchor" href="#'.$idstring.'"></a>';
 }
-function getInnerLi($group, $thing, $name, $details) {
+function getInnerLi($key, $group, $thing, $name, $details) {
 	#$classname = getClassstring($name);
-	echo '<li>';
-	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>';
+	$idstring = getIdString($key, $group, $thing, $name);
+	echo '<li id="'.getIdString($key, $group, $thing, $name).'">';
+	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
 	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']);
@@ -422,13 +431,13 @@ foreach($areas as $key => $area) {
 	echo '<h2 id="'.$key.'">'.$area[0].'</h2><p>'.$area[1].'</p>';
 	echo "<ul>";
 	foreach($results3[$key] as $group => $things) {
-		echo getLi($group);
+		echo getLi($key, $group);
 		echo "<ul>";
 		foreach($things as $thing => $calls) {
-			echo getMiddleLi($group, $thing);
+			echo getMiddleLi($key, $group, $thing);
 			echo "<ul>";
 			foreach($calls as $name => $details) {			
-				echo getInnerLi($group, $thing, $name, $details);
+				echo getInnerLi($key, $group, $thing, $name, $details);
 			}
 			echo "</ul>";
 			echo "</li>";
