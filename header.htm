@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Overview of the trakt.tv API Concepts and Endpoints » Betamode</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">	
+	
+<style>
+body {
+	text-align:center;
+	line-height:140%;
+}
+#content {
+	text-align:left;
+	max-width: 800px;
+	margin:auto;
+}
+.light { background-color:grey; color:#ccc; }
+.deactivated {
+	transition: opacity 1s;
+	opacity: 0.55;
+	border: 1px solid red;
+}
+.debug {
+	background:red;
+	color:white;
+	padding:3px;
+	padding-bottom:1px;
+}
+.hide {
+	display: none;
+}
+</style>
+<script>
+// Cookies
+function setCookie(cname, cvalue, exdays) {
+	console.log('setCookie', cname, cvalue, exdays);
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+			console.log('getCookie', cname, '=', c.substring(name.length, c.length));
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+function addCheckboxes() {
+	// get all elements with 'data-class' attribute
+	var els = document.querySelectorAll('[data-class]');
+	for (var i = 0; i < els.length; i++) {
+		var el = els[i]; // element we are working on
+		var classname = el.dataset['class']; 
+		var checkboxId = 'checkbox-' + classname;
+		
+		// wrap label around element
+		const wrapper = document.createElement('label');
+		wrapper.htmlFor = checkboxId;
+		el.parentNode.insertBefore(wrapper, el);
+		el.parentNode.removeChild(el);
+		wrapper.appendChild(el);
+				
+		// read the current/previous setting
+		var cookie = getCookie(checkboxId);
+		
+		// add checkbox after element
+		const input = document.createElement('input');
+		input.setAttribute("type", "checkbox");
+		input.setAttribute("checked", "checked");
+		input.setAttribute("onchange", "handleCheckboxChange(event);");
+		input.id = checkboxId;
+		// start with correct setting (per cookie)
+		if(cookie == "unchecked") {
+			input.removeAttribute('checked');
+		} else {
+			input.setAttribute('checked', 'checked');
+		}
+		el.parentNode.insertBefore(input, el.nextSibling);			
+				
+		// make changes to UI!
+		if(cookie == "unchecked") {
+			hideElementsWithClass(classname);
+		} else {
+			showElementsWithClass(classname);
+		}
+	}
+}
+
+function handleCheckboxChange(e) {
+	var el = e.target;
+	var targetValue = "unchecked"
+	var checkboxId = el.id;
+	
+	var value = getCookie(checkboxId);
+	if(value == 'unchecked') targetValue = "checked";
+	
+	console.log('old =', value, '; new =', targetValue);
+	setCookie(checkboxId, targetValue, 365);
+	
+	if(targetValue == "unchecked") { 
+		hideElementsWithClass(checkboxId); 
+	} else { 
+		showElementsWithClass(checkboxId); 
+	}
+}
+
+function hideElementsWithClass(name) {
+	var classname = name.replace("checkbox-", "");
+	console.log('hideElementsWithClass', classname);
+	els = document.getElementsByClassName(classname);
+	
+	for (var i = 0; i < els.length; i++) {
+		var el = els[i];
+		
+		// real hide
+		//el.style.display = 'none';
+
+		// add class
+		el.classList.add('deactivated');
+		
+		// add debug element
+		var newNode = document.createElement("span");
+		newNode.classList.add('debug');
+		newNode.innerHTML = "removed by '"+classname+"'";
+		el.parentNode.insertBefore(newNode, el.nextSibling);				
+	}
+}
+
+function showElementsWithClass(name) {
+	var classname = name.replace("checkbox-", "");
+	console.log('showElementsWithClass', classname);
+	els = document.getElementsByClassName(classname);
+	for (var i = 0; i < els.length; i++) {
+		var el = els[i];
+		
+		// real show
+		//el.style.display = ''|'inline'|'inline-block'|'inline-table'|'block';
+		
+		// add class
+		el.classList.remove('deactivated');
+		
+		// remove debug element
+		if(el.nextSibling && el.nextSibling.innerHTML == "removed by '"+classname+"'") {
+			el.nextSibling.parentNode.removeChild(el.nextSibling);
+		}
+	}
+}
+
+// $(document).ready(function(){
+function ready(fn) {
+  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(addCheckboxes);
+
+
+
+function toggleHide(e) {
+	var box = e.target;
+	els = document.getElementsByClassName('deactivated');
+	for (var i = 0; i < els.length; i++) {
+		var el = els[i];
+		if (box.checked) {
+			el.classList.add('hide');
+		} else {
+			el.classList.remove('hide');
+		}
+	}
+	
+	els = document.getElementsByClassName('debug');
+	for (var i = 0; i < els.length; i++) {
+		var el = els[i];
+		if (box.checked) {
+			el.classList.add('hide');
+		} else {
+			el.classList.remove('hide');
+		}
+	}
+	
+}
+</script>
+
+</head>
+
+<body>
+
+	<div id="content">

@@ -229,14 +229,18 @@ function getEmoji($emoji) {
 	return implode($output, ' ');
 }
 function getClassstring($class) {
+	$class = strtolower($class);
 	
-	// hard replace
+	// special case
+	if($class == 'add to history') $class = 'add-history history';
+	
+	// preparations
+	// => remove
 	$class = str_replace(array(' progress', 'get ', 'add to ', 'remove from ', 'add ', 'remove ', ' items'), '', $class);
+	// => shows
 	$class = str_replace(array('all shows', 'all new shows', 'all season premieres', 'my shows', 'my new shows', 'my season premieres'), 'shows', $class);
+	// => movies
 	$class = str_replace(array('all movies', 'all dvd', 'my movies', 'my dvd'), 'movies', $class);
-	$search = array('');
-	$replace = array('');
-	$class = str_replace($search, $replace, $class);
 	
 	// additions
 	if($class == 'seasons') $class = 'shows '.$class;
@@ -247,7 +251,6 @@ function getClassstring($class) {
 	if($class == 'friends') $class = 'follow '.$class;
 	if($class == 'scrobble') $class = 'watch '.$class;
 	if($class == 'history') $class = 'watched '.$class;
-
 
 	// complete replacement
 	if($class == 'comment') $class = 'comments';
@@ -274,9 +277,6 @@ function getClassstring($class) {
 	if($class == 'approve or deny follower requests') $class = 'follower-requests follow';
 	if($class == 'list like') $class = 'lists likes';
 	
-	
-	
-	
 	// remove
 	if($class == 'box office') $class = '';
 	if($class == 'updates') $class = '';
@@ -289,272 +289,30 @@ function getClassstring($class) {
 	return $class;
 }
 function getLi($group) {
-	$low = strtolower($group);
-	return '<li class="'.getClassstring($low).'">'.getClassstring($low).' # <a href="http://docs.trakt.apiary.io/#reference/'.$low.'">'.$group.'</a>';
+	$classname = getClassstring($group);
+	return '<li class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'">'.$group.'</a>';
 }
-function getInnerLi($thing, $name, $details) {
-	$low = strtolower($thing);
-	echo '<li class="'.getClassstring($low).'">'.getClassstring($low).' # <a href="http://docs.trakt.apiary.io/#reference/calendars/'.$low.'/'.$name.'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>
-	<em>'.$details['method'].' '.$details['endpoint'].'</em><br>
-	'.$details['intro'].'</li>';
+function getMiddleLi($group, $thing) {
+	$classname = getClassstring($thing);
+	echo '<li class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'">'.$thing.'</a>';
 }
-?>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style>
-.light { background-color:grey; color:#ccc; }
-.deactivated {
-	transition: opacity 1s;
-	opacity: 0.55;
-	border: 1px solid red;
+function getInnerLi($group, $thing, $name, $details) {
+	#$classname = getClassstring($name);
+	echo '<li>';
+	#echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>';
+	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
+	#echo $details['intro'];
+	echo '</li>';
 }
-.debug {
-	background:red;
-	color:white;
-	padding:3px;
-	padding-bottom:1px;
-}
-.hide {
-	display: none;
-}
-</style>
-<script>
-// Cookies
-function setCookie(cname, cvalue, exdays) {
-	console.log('setCookie', cname, cvalue, exdays);
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-			console.log('getCookie', cname, '=', c.substring(name.length, c.length));
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+function getUrlString($string) {
+	$string = strtolower($string);
+	$string = str_replace(' ', '-', $string);
+	return $string;
 }
 
-
-function addInputFields() {
-	var els = document.querySelectorAll('[data-class]');
-	for (var i = 0; i < els.length; i++) {
-		var el = els[i];
-		var name = el.dataset['class'];
-		
-		if(name == "scrobble" || name == "scrobble") { 
-			console.log(el.parentNode.parentNode.innerHTML); 
-		}
-		
-		var id = 'checkbox-' + name;
-		// wrap label around element
-		const wrapper = document.createElement('label');
-		wrapper.htmlFor = id;
-		el.parentNode.insertBefore(wrapper, el);
-		el.parentNode.removeChild(el);
-		wrapper.appendChild(el);
-		
-		if(name == "scrobble" ) { console.log(el.parentNode.parentNode.innerHTML); }
-		
-		// read the current/previous setting
-		var cookie = getCookie(id);
-		
-		// add checkbox after element
-		const input = document.createElement('input');
-		input.setAttribute("type", "checkbox");
-		input.setAttribute("checked", "checked");
-		input.setAttribute("onchange", "handleChange(event);");
-		input.id = id;
-		if(cookie == "unchecked") {
-			input.removeAttribute('checked');
-		} else {
-			input.setAttribute('checked', 'checked');
-		}
-		el.parentNode.insertBefore(input, el.nextSibling);			
-		
-		if(name == "scrobble" || name == "scrobble") { console.log(el.parentNode.parentNode.innerHTML); }
-		
-		// make changes!
-		if(cookie == "unchecked") {
-			hide(name);
-		} else {
-			show(name);
-		}
-		
-	}
-}
-
-function handleChange(e) {
-	var el = e.target;
-	var targetValue = "unchecked"
-	var name = el.id;
-	
-	var value = getCookie(name);
-	if(value == 'unchecked') targetValue = "checked";
-	
-	console.log('old =', value, '; new =', targetValue);
-	setCookie(name, targetValue, 365);
-	
-	if(targetValue == "unchecked") { 
-		hide(name); 
-	} else { 
-		show(name); 
-	}
-}
-
-function hide(name) {
-	var classname = name.replace("checkbox-", "");
-	console.log('hide', classname);
-	els = document.getElementsByClassName(classname);
-	
-	for (var i = 0; i < els.length; i++) {
-		var el = els[i];
-		
-		// real hide
-		//el.style.display = 'none';
-
-		// add class
-		el.classList.add('deactivated');
-		
-		// add debug element
-		var newNode = document.createElement("span");
-		newNode.classList.add('debug');
-		newNode.innerHTML = "removed by '"+classname+"'";
-		el.parentNode.insertBefore(newNode, el.nextSibling);				
-	}
-}
-
-function show(name) {
-	var classname = name.replace("checkbox-", "");
-	console.log('show', classname);
-	els = document.getElementsByClassName(classname);
-	for (var i = 0; i < els.length; i++) {
-		var el = els[i];
-		
-		// real show
-		//el.style.display = ''|'inline'|'inline-block'|'inline-table'|'block';
-		
-		// add class
-		el.classList.remove('deactivated');
-		
-		// remove debug element
-		if(el.nextSibling && el.nextSibling.innerHTML == "removed by '"+classname+"'") {
-			el.nextSibling.parentNode.removeChild(el.nextSibling);
-		}
-	}
-}
-
-
-
-// $(document).ready(function(){
-function ready(fn) {
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-
-ready(addInputFields);
-
-
-
-function toggleHide(e) {
-	var box = e.target;
-	els = document.getElementsByClassName('deactivated');
-	for (var i = 0; i < els.length; i++) {
-		var el = els[i];
-		if (box.checked) {
-			el.classList.add('hide');
-		} else {
-			el.classList.remove('hide');
-		}
-	}
-	
-	els = document.getElementsByClassName('debug');
-	for (var i = 0; i < els.length; i++) {
-		var el = els[i];
-		if (box.checked) {
-			el.classList.add('hide');
-		} else {
-			el.classList.remove('hide');
-		}
-	}
-	
-}
-</script>
-<ul>
-	<li><a href="#concepts">Concepts</a></li>
-	<li><a href="#emojis">Emojis Legend</a></li>
-	<li>Endpoints
-		<ul>
-			<li><a href="#data">Data Endpoints</a></li>
-			<li><a href="#user">User Endpoints</a></li>
-			<li><a href="#master-data">Master Data Endpoints</a></li>
-		</ul>
-	</li>
-</ul>
-<h3 id="concepts">Concepts</h3>
-<p>The API only <a href="http://docs.trakt.apiary.io/#introduction/terminology">defines some terms in „Terminology“</a>, but there is a lot more to understand what there is and how it is all connected:</p>
-<ul>
-	<li>There are <strong data-class="users">Users</strong> and objects: <strong data-class="movies">Movies</strong>, <strong data-class="shows">Shows</strong> with <strong data-class="seasons">Seasons</strong> and <strong data-class="episodes">Episodes</strong>.</li>
-	<li class="users">Users
-		<ul>
-			<li>Users can <strong data-class="watch">watch</strong> things:
-				<ul>
-					<li class="watch"><em>Users</em> can <strong data-class="checkin">checkin</strong> to or <strong data-class="scrobble">scrobble</strong> <em>movies </em>and <em>episodes.</em> These are then first marked as <em data-class="watching">watching</em>, later as <em>watched</em> after the runtime (complicated, read details in docs).</li>
-					<li class="watch"><em>Users</em> can additionally <strong data-class="add-history">add to history</strong> for <em>movies</em>, <em>shows</em>, <em>seasons</em> and <em>episodes</em> to mark them as <em data-class="watched">watched</em> instantly.</li>
-				</ul>
-			</li>
-			<li><em>Users </em>can create multiple <strong data-class="lists">Lists</strong> and have one <strong data-class="collection">Collection</strong> and one<strong data-class="watchlist"> Watchlist</strong> (of <em>movies</em>, <em>shows</em>, <em>seasons</em>, and <em>episodes</em>).</li>
-			<li><em>Users</em> can write <strong data-class="comments">Comments</strong> on <em>movies</em>, <em>shows</em>, <em>seasons</em>, <em>episodes</em>, or <em>lists</em>.
-				<ul class="comments">
-					<li><em>Users </em>can create <strong data-class="replies">Replies</strong> and <strong data-class="likes">Likes</strong> <em>on comments </em>and<em> lists.</em><strong><br>
-</strong></li>
-				</ul></li>
-			<li><em>Users</em> can create <strong data-class="ratings">Ratings</strong> on <em>movies</em>, <em>shows</em>,<em> seasons</em> and <em>episode. </em></li>
-			<li><em>Users</em> have <strong data-class="settings">Settings</strong> and a<strong data-class="profile"> Profile</strong></li>
-			<li><em>Users</em> can <strong data-class="follow">follow</strong> other <em>users</em> to create <strong data-class="follower-requests">Follower Requests</strong> and eventually become <strong data-class="followers">Followers</strong>, <strong data-class="following">Following</strong> and <strong data-class="friends">Friends</strong></li>
-		</ul>
-	</li>
-	<li>Objects
-		<ul>
-			<li>There is additional information for some objects:
-				<ul>
-					<li><strong data-class="summary">Summary</strong> for <em>movies</em>, <em>people</em>, <em>shows</em>, <em>seasons</em> and <em>episodes</em> collect all known information about them</li>
-					<li><strong data-class="aliases">Aliases</strong> of <em>movies</em> and <em>shows</em></li>
-					<li class="movies"><strong data-class="releases">Releases</strong> of <em>movies</em></li>
-					<li><strong data-class="translations">Translations</strong> of <em>movies</em>, <em>shows</em> and <em>episodes </em></li>
-					<li><strong data-class="people">People</strong> are cast and crew of <em>shows</em> and <em>movies</em></li>
-				</ul>
-			</li>
-			<li><strong data-class="search">Search</strong> can look for <em>movies</em>, <em>shows</em>, <em>episodes</em>, <em>people</em>, and <em>lists</em> by text or ID.</li>
-			<li><strong data-class="related">Related</strong> objects are calculated for <em>movies </em>and <em>shows</em>.</li>
-			<li><strong data-class="stats">Stats</strong> are calculated for <em>movies</em>, <em>shows</em>, <em>seasons</em>, <em>episodes</em> and <em>users</em>.</li>
-		</ul>
-	</li>
-	<li class="users">Users and Objects
-		<ul>
-			<li><strong data-class="history">History</strong> <span class="scrobble">and <strong data-class="playback">Playback</strong></span> are calculated based on <em>checkins</em> and <em>scrobbles</em> (=<em> movies </em>and <em>episodes </em>watched) and manual <em>„add to history"</em>.</li>
-			<li><strong data-class="last-activities">Last Activities</strong> are collected from <em>history</em> and all other <em>user</em> activities (comments, replies, likes, ratings).</li>
-			<li>Based on the <em>releases</em> of objects and the <em>history</em> of the <em>user</em> there are <strong data-class="calendars">Calendars</strong> for <em>shows </em>and <em>episodes</em>.</li>
-			<li><strong data-class="recommendations">Recommendations</strong> are given to <em>users</em> for <em>movies</em> and <em>shows.</em></li>
-			<li><strong>Collection Progress</strong> and <strong>Watch Progress </strong>is calculated for <em>users</em> for <em>shows</em> and their<em> episodes.</em></li>
-			<li><em>Users</em> can create<strong data-class="hidden"> Hidden Items</strong> to hide things (<em>movies, shows </em>or<em> episodes</em>) in <em>calendars</em>, <em>collection progress</em>, <em>watch progress</em> <em>and recommendations.</em></li>
-		</ul>
-	</li>
-</ul>
-<p>Use the checkboxes next to the terms to deactivate them in the list below. You can also set if they only should be deactivated or completely hidden. <label><i>Hide deactivated items:</i> <input type="checkbox" onchange="toggleHide(event);"></label> </p>
-<?php
+include('header.htm');
+include('intro.htm');
+include('concepts.htm');
 $areas = array(
 	'data' => array('Data Endpoints', 'These return the nitty-gritty of Trakt: Lots of data about shows and movies and all the things related to them:'),
 	'user' => array('User Endpoints', 'If it matters which user is logged in via OAuth, these endpoints are collected here:'),
@@ -564,13 +322,13 @@ foreach($areas as $key => $area) {
 	echo '<h2 id="'.$key.'">'.$area[0].'</h2><p>'.$area[1].'</p>';
 	echo "<ul>";
 	foreach($results3[$key] as $group => $things) {
-		echo getLi($group); //'<li class="calendars"><a href="http://docs.trakt.apiary.io/#reference/calendars">'.$group.'</a>';
+		echo getLi($group);
 		echo "<ul>";
 		foreach($things as $thing => $calls) {
-			echo '<li>'.$thing.'';
+			echo getMiddleLi($group, $thing);
 			echo "<ul>";
 			foreach($calls as $name => $details) {			
-				echo getInnerLi($thing, $name, $details);
+				echo getInnerLi($group, $thing, $name, $details);
 			}
 			echo "</ul>";
 			echo "</li>";
