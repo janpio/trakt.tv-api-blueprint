@@ -174,8 +174,9 @@ foreach($results2 as $k => $v) {
 		unset($results2[$k]['h4']);
 	}
 	// p
-	$p = explode(".", $v['p']);
-	$results2[$k]['intro'] = $p[0].".";
+	$p = explode(". ", $v['p']);
+	$results2[$k]['intro'] = $p[0];
+	if($p[1]) $results2[$k]['intro'] .= '.'; // add dot at the end if it was a split
 	
 }
 #print_r($results2);
@@ -288,6 +289,73 @@ function getClassstring($class) {
 	
 	return $class;
 }
+function getReturnTypes($text) {
+	$returns = array();
+	$possible = array(
+		'list of shows' => array('Returns all shows', 'Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
+		'list of movies' => array('Returns all movies', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
+		'comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
+		'list of replies' => array('Returns all replies'),
+		'list of comments' => array('Returns all top level comments', 'Returns comments'),
+		'movie' => array('Returns a single movie'),
+		'list of aliases' => array('Returns all title aliases'),
+		'list of releases' => array('Returns all releases'),
+		'list of translations' => array('Returns all translations'),
+		'list of lists' => array('Returns all lists', 'Returns all custom lists'),
+		'object of cast (list of people) + crew (object of lists of people)' => array('Returns all cast and crew'),
+		'ratings (calculated)' => array('Returns rating (between 0 and 10) and distribution'),
+		'stats' => array('Returns lots of'),
+		'list of users' => array('Returns all users'),
+		'person' => array('Returns a single person'),
+		'list of results (object with movie, show, episode, person or list)' => array('Search', 'Lookup item'),
+		'show' => array('Returns a single shows'),
+		'episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
+		'list of seasons' => array('Returns all seasons'),
+		'list of episodes' => array('Returns all episodes'),
+		'user' => array('Get a user'),
+		'list of collected items (object with movie, show, season, or episode)' => array('Get all collected items'), // merge with list of listed items?
+		'list' => array('Returns a single custom list', 'Create a new custom list', 'Update a custom list'),
+		'list of listed items (object with movie, show, episode, person or list)' => array('Get all items on a custom list'),
+		'list of followers/ings (object with user)' => array('Returns all followers', 'Returns all user\'s they follow'), // probably two different responses?
+		'list of friends (object with user)' => array('Returns all friends'),
+		'list of watched (object with movie, episode)' => array('Returns movies and episodes'),
+		'list of watchlisted items (object with movie, show, season, episode)' => array('Returns all items in a user\'s watchlist'),
+		'watching (object with movie, episode)' => array('Returns a movie or episode if the user is currently watching '),
+		'list of watched (object with movie, show, seasons)' => array('Returns all movies or shows a user has watched'), 
+		'userstats' => array('Returns stats about the movies, shows, and episodes a user'),
+		'history (objet with movie, episode)' => array('Check into a movie or episode'),
+		'-' => array('Votes help determine'),
+		'scrobble' => array('Use this method when the video'),
+		'progress (object with seasons, next_episode)' => array('Returns collection progress', 'Returns watched progress'),
+		'activity' => array('This method is a useful first step'),
+		'playback' => array('Whenever a scrobble is paused'), // Scrobble?
+		'operation result (object with added, updated, existing, deleted, not_found)' => array('Add items to a user\'s collection', 'Remove one or more items from a user\'s collection.', 'Add items to a user\'s watch history.', 'Remove items from a user\'s watch history', 'Rate one or more items', 'Remove ratings', 'Add one of more items to a user\'s watchlist.', 'Remove one or more items from a user\'s watchlist.', 'Hide items for a specific section', 'Unhide items for a specific section', 'Add one or more items to a custom list', 'Remove one or more items from a custom list'),
+		'settings' => array('Get the user\'s settings'),
+		'list of follow-requests' => array('List a user\'s pending follow requests'),
+		'follower' => array('Approve a follower', 'If the user has a private profile'),
+		'list of hidden items (object with movie, ???)' => array('Get hidden items'), // TODO
+		'list of liked items (object with comment, ???)' => array('Get items a user likes'),
+		'certifications' => array('Get a list of all certifications'),
+		'list of genres' => array('Get a list of all genres'),
+		'list of networks' => array('Get a list of all TV'),
+		
+		# check again in output if all "Returns all movies or shows" are correct!
+	);
+	foreach($possible as $key => $value) {
+		if(_string_includes_from_array($text, $value)) $returns[] = $key ;
+	}
+	array_unique($returns);
+	if(count($returns) == 0) return "unkown";
+	return implode(", ", $returns);
+}
+function _string_includes_from_array($string, $array) {
+	foreach ($array as $search) {
+		if (strpos($string, $search) !== FALSE) {
+			return true;
+		}
+	}
+	return false;
+}
 function getLi($group) {
 	$classname = getClassstring($group);
 	return '<li class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'">'.$group.'</a>';
@@ -301,7 +369,8 @@ function getInnerLi($group, $thing, $name, $details) {
 	echo '<li>';
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
-	echo $details['intro'];
+	echo $details['intro'].'<br>';
+	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']);
 	echo '</li>';
 }
 function getUrlString($string) {
