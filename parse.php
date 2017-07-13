@@ -340,9 +340,9 @@ function getReturnTypes($text) {
 		
 		// watch
 		'Watching (object with Movie, Episode)' => array('Returns a movie or episode if the user is currently watching '),
-		'Watched[] (object with Movie, Show, Seasons)' => array('Returns all movies or shows a user has watched'), 
+		'Watched[] (object with Movie | object with Show, Season[])' => array('Returns all movies or shows a user has watched'), 
 		'History (object with Movie, Episode)' => array('Check into a movie or episode'),
-		'History[]' => array('Returns movies and episodes that a user has watched'),
+		'History[] (object with Movie, Episode)' => array('Returns movies and episodes that a user has watched'),
 		'Activity' => array('This method is a useful first step'),
 		
 		// progress
@@ -406,7 +406,7 @@ function getMiddleLi($key, $group, $thing) {
 function getInnerLi($key, $group, $thing, $name, $details) {
 	#$classname = getClassstring($name);
 	$idstring = getIdString($key, $group, $thing, $name);
-	echo '<li id="'.getIdString($key, $group, $thing, $name).'">';
+	echo '<li id="'.getIdString($key, $group, $thing, $name).'" onclick="toggleUsed(event);">';
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';

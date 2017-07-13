@@ -38,6 +38,10 @@ a.anchor::after {
     margin-left: 5px;
     margin-right: -5px;
 }
+
+.used {
+	background-color:yellow;
+}
 </style>
 <script>
 // Cookies
@@ -115,6 +119,17 @@ function addCheckboxes() {
 	} else {
 		input.setAttribute('checked', 'checked');
 		hideDeactivated('checked');
+	}
+	
+	// set used
+	var used = getCookie('used');
+	used = JSON.parse(used)
+	for (let id in used) {
+		console.log(id, used[id]);
+		if(used[id]) {
+			el = document.getElementById(id);
+			el.classList.add('used');
+		}
 	}
 	
 	// move back to anchor
@@ -244,6 +259,24 @@ function toggleHide(e) {
 	}	
 	console.log('cookie: hideDeactivated =', targetValue);
 	setCookie('hideDeactivated', targetValue, 365);
+}
+
+
+function toggleUsed(e) {
+	var el = e.target;
+	var id = el.id;
+	if(!id) return;
+	var cookie = getCookie('used');
+	if(!cookie) cookie = {}; else { cookie = JSON.parse(cookie); }
+	console.log('toggleUsed', id, cookie);
+	if(el.classList.contains('used')) {
+		el.classList.remove('used');
+		cookie[id] = false;
+	} else {
+		el.classList.add('used');
+		cookie[id] = true;
+	}
+	setCookie('used', JSON.stringify(cookie), 365);
 }
 </script>
 
