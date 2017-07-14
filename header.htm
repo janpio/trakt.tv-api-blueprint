@@ -123,27 +123,27 @@ function addCheckboxes() {
 	
 	// set used
 	var used = getCookie('used');
-	used = JSON.parse(used)
-	for (let id in used) {
-		console.log(id, used[id]);
-		if(used[id]) {
-			el = document.getElementById(id);
-			el.classList.add('used');
+	if(used) {
+		used = JSON.parse(used);
+		for (let id in used) {
+			console.log(id, used[id]);
+			if(used[id]) {
+				el = document.getElementById(id);
+				el.classList.add('used');
+			}
 		}
 	}
 	
-	// move back to anchor
+	// move back to anchor TODO unused I think?
     var url = location.href;
 	var hash = window.location.hash;
 	if(hash != null) {
 	console.log('try to scroll!');
 		//location.href = hash;  
 		
-		
 		var h = hash.replace("#", "");
 		var top = document.getElementById(h).offsetTop; //Getting Y of target element
 		window.scrollTo(0, top);  
-		
 		
 		//document.getElementById(h).scrollIntoView();
 	}
