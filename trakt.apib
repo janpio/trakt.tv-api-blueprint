@@ -10328,6 +10328,8 @@ This method is a useful first step in the syncing process. We recommended cachin
                 }
             }
 
+# Group Sync - Playback
+
 ## Playback [/sync/playback/{type}]
 + Parameters
     + type (optional, string, `movies`) ...
@@ -10423,6 +10425,8 @@ Remove a playback item from a user's playback progress list. A `404` will be ret
             trakt-api-key: [client_id]
 
 + Response 204
+
+# Group Sync - Collection
 
 ## Get Collection [/sync/collection/{type}]
 + Parameters
@@ -11074,6 +11078,8 @@ Remove one or more items from a user's collection.
                 }
             }
 
+# Group Sync - Watched
+
 ## Get Watched [/sync/watched/{type}]
 + Parameters
     + type (required, string, `movies`) ...
@@ -11282,6 +11288,8 @@ Returns all movies or shows a user has watched sorted by most plays. If `type` i
                     }
                 }
             ]
+
+# Group Sync - History
 
 ## Get History [/sync/history/{type}/{id}{?start_at,end_at}]
 
@@ -11863,6 +11871,8 @@ You can also send a list of raw history `ids` _(64-bit integers)_ to delete sing
                 }
             }
 
+# Group Sync - Ratings
+
 ## Get Ratings [/sync/ratings/{type}/{rating}]
 + Parameters
     + type (optional, string, `movies`) ...
@@ -12403,6 +12413,8 @@ Remove ratings for one or more items.
                     "episodes": []
                 }
             }
+
+# Group Sync - Watchlist
 
 ## Get Watchlist [/sync/watchlist/{type}]
 
