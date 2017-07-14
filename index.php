@@ -200,7 +200,7 @@ foreach($results2 as $_data) {
 	}
 	else if($_data['emoji']['oauth'] == 'optional') {
 		$results3['user'][$_data['h1']][$_data['h2']][$_data['h3']] = $details;
-		$results3['data'][$_data['h1']][$_data['h2']][$_data['h3']] = $details;
+		// $results3['data'][$_data['h1']][$_data['h2']][$_data['h3']] = $details;
 	}
 	else {
 		$results3['data'][$_data['h1']][$_data['h2']][$_data['h3']] = $details;
@@ -294,8 +294,7 @@ function getReturnTypes($text) {
 	$possible = array(
 		// show
 		'Show' => array('Returns a single shows'),
-		'Show[] ALL' => array('Returns all shows'),
-		'Show[]' => array('Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
+		'Show[]' => array('Returns all shows being', 'Returns all shows updated', 'Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
 		'Season[]' => array('Returns all seasons'),
 		'Episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
 		'Episode[]' => array('Returns all episodes'),
