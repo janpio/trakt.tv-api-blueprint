@@ -323,7 +323,6 @@ function getClassstring($class) {
 	
 	// remove
 	if($class == 'box office') $class = '';
-	if($class == 'updates') $class = '';
 	if($class == 'text query') $class = '';
 	if($class == 'id lookup') $class = '';
 	if($class == 'start') $class = '';
