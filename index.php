@@ -396,7 +396,7 @@ function getReturnTypes($text) {
 		'Watched[] (object with Movie | object with Show, Season[])' => array('Returns all movies or shows a user has watched'), 
 		'History (object with Movie or Episode)' => array('Check into a movie or episode'),
 		'History[] (object with Movie or Episode)' => array('Returns movies and episodes that a user has watched'),
-		'Activity (obbject with timestamps)' => array('This method is a useful first step'),
+		'Activity (object with timestamps)' => array('Returns a list of dates when the user'),
 		
 		// progress
 		'Progress (object with Season[], Episode (next_episode))' => array('Returns collection progress', 'Returns watched progress'),
