@@ -211,6 +211,49 @@ foreach($results2 as $_data) {
 #print_r($results3);
 #exit;
 
+// define areas
+$areas = array(
+	'data' => array('Data Endpoints', 'These return the nitty-gritty of Trakt: Lots of data about shows and movies and all the things related to them:'),
+	'user' => array('User Endpoints', 'If it matters which user is logged in via OAuth, these endpoints are collected here:'),
+	'master-data' => array('Master Data Endpoints', 'These endpoints offer mostly static data that should be retrieved once and then be cached for further use:')
+);
+
+// find and mark duplicates
+# pre-sort
+$nameintro = array();
+foreach($areas as $key => $area) {
+	foreach($results3[$key] as $group => $things) {
+		foreach($things as $thing => $calls) {
+			foreach($calls as $name => $details) {
+				$nameintro[$name."|".$details['intro']][] = array($key, $group, $thing, $name, $details);
+			}
+		}
+	}
+}
+# only get duplicates
+$duplicates = array();
+foreach($nameintro as $foo => $bar) {
+	if(count($bar) > 1) {
+		$duplicates[] = $bar;
+	}
+}
+#print_r($duplicates);
+#exit;
+# mark duplicates
+foreach($duplicates as $foo) {
+	$one = $foo[0];
+	$two = $foo[1];
+	/*
+	print_r($results3[$one[0]][$one[1]][$one[2]][$one[3]]);
+	echo "<hr>";
+	print_r($two[4]);
+	exit;
+	*/
+	$results3[$one[0]][$one[1]][$one[2]][$one[3]]['duplicate'] = $two;
+	$results3[$two[0]][$two[1]][$two[2]][$two[3]]['duplicate'] = $one;
+}
+
+
 // output html
 function getEmoji($emoji) {
 	if(!$emoji) return;
@@ -404,13 +447,17 @@ function getMiddleLi($key, $group, $thing) {
 	echo '<li id="'.getIdString($key, $group, $thing).'" class="'.$classname.'"><a title="class = '.$classname.'" href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'">'.$thing.'</a><a class="anchor" href="#'.$idstring.'"></a>';
 }
 function getInnerLi($key, $group, $thing, $name, $details) {
+	global $areas;
 	#$classname = getClassstring($name);
 	$idstring = getIdString($key, $group, $thing, $name);
 	echo '<li id="'.getIdString($key, $group, $thing, $name).'" onclick="toggleUsed(event);">';
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
-	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']);
+	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']).'<br>';
+	if($details['duplicate']) {
+		echo '⚠ Duplicate at <a href="#'.getIdString($details['duplicate'][0], $details['duplicate'][1], $details['duplicate'][2], $details['duplicate'][3]).'">'.$areas[$details['duplicate'][0]][0].' > '.$details['duplicate'][1].' > '.$details['duplicate'][2].' > '.$details['duplicate'][3].'</a><br>';
+	}
 	echo '</li>';
 }
 function getUrlString($string) {
@@ -422,11 +469,6 @@ function getUrlString($string) {
 include('header.htm');
 include('intro.htm');
 include('concepts.htm');
-$areas = array(
-	'data' => array('Data Endpoints', 'These return the nitty-gritty of Trakt: Lots of data about shows and movies and all the things related to them:'),
-	'user' => array('User Endpoints', 'If it matters which user is logged in via OAuth, these endpoints are collected here:'),
-	'master-data' => array('Master Data Endpoints', 'These endpoints offer mostly static data that should be retrieved once and then be cached for further use:')
-);
 foreach($areas as $key => $area) {
 	echo '<h2 id="'.$key.'">'.$area[0].'</h2><p>'.$area[1].'</p>';
 	echo "<ul>";
