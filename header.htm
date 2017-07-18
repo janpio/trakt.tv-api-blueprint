@@ -40,7 +40,11 @@ a.anchor::after {
 }
 
 .used {
-	background-color:yellow;
+	background-color: #AFEEEE;
+}
+
+.duplicate_used {
+	background-color: #F0FFFF;
 }
 </style>
 <script>
@@ -130,6 +134,18 @@ function addCheckboxes() {
 			if(used[id]) {
 				el = document.getElementById(id);
 				el.classList.add('used');
+			}
+		}
+	}
+	// set duplicate-used
+	var duplicate_used = getCookie('duplicate_used');
+	if(duplicate_used) {
+		duplicate_used = JSON.parse(duplicate_used);
+		for (let id in duplicate_used) {
+			console.log(id, duplicate_used[id]);
+			if(duplicate_used[id]) {
+				el = document.getElementById(id);
+				el.classList.add('duplicate_used');
 			}
 		}
 	}
@@ -263,22 +279,31 @@ function toggleHide(e) {
 	setCookie('hideDeactivated', targetValue, 365);
 }
 
-
+function _toggleUsed(el, id, type) {
+	var cookie = getCookie(type);
+	if(!cookie) cookie = {}; else { cookie = JSON.parse(cookie); }
+	console.log('toggleUsed', type, id, cookie);
+	if(el.classList.contains(type)) {
+		el.classList.remove(type);
+		cookie[id] = false;
+	} else {
+		el.classList.add(type);
+		cookie[id] = true;
+	}
+	setCookie(type, JSON.stringify(cookie), 365);
+}
 function toggleUsed(e) {
 	var el = e.target;
 	var id = el.id;
 	if(!id) return;
-	var cookie = getCookie('used');
-	if(!cookie) cookie = {}; else { cookie = JSON.parse(cookie); }
-	console.log('toggleUsed', id, cookie);
-	if(el.classList.contains('used')) {
-		el.classList.remove('used');
-		cookie[id] = false;
-	} else {
-		el.classList.add('used');
-		cookie[id] = true;
+	// used
+	_toggleUsed(el, id, 'used');	
+	// duplicate_used
+	var duplicate_id = el.dataset['duplicate']; 
+	duplicate_el = document.getElementById(duplicate_id);
+	if(duplicate_id) {
+		_toggleUsed(duplicate_el, duplicate_id, 'duplicate_used');
 	}
-	setCookie('used', JSON.stringify(cookie), 365);
 }
 </script>
 

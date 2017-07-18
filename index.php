@@ -460,7 +460,9 @@ function getInnerLi($key, $group, $thing, $name, $details) {
 	global $areas;
 	#$classname = getClassstring($name);
 	$idstring = getIdString($key, $group, $thing, $name);
-	echo '<li id="'.getIdString($key, $group, $thing, $name).'" onclick="toggleUsed(event);">';
+	echo '<li id="'.getIdString($key, $group, $thing, $name).'" onclick="toggleUsed(event);"';
+	if($details['duplicate']) { echo ' data-duplicate="'.getIdString($details['duplicate'][0], $details['duplicate'][1], $details['duplicate'][2], $details['duplicate'][3]).'"'; }
+	echo '>';
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
