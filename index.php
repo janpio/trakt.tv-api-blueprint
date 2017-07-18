@@ -121,6 +121,25 @@ foreach($array as $element) {
 		$take_next_p = false;
 		$results[] = $element;
 	}
+	
+	// pre
+	# li "Response 200"
+	if($element['node'] == 'li' && strpos($element['value'], 'Response 20') !== false) {
+		$is_li_response = true;
+		#$results[] = $element;
+	}
+	# p "Body" 
+	if($is_li_response && $element['node'] == 'p' && strpos($element['value'], 'Body') !== false) {
+		$is_p_body = true;
+		#$results[] = $element;
+	}
+	# pre
+	if($is_li_response && $is_p_body && $element['node'] == 'pre') {
+		$results[] = $element;
+		$is_li_response = false;
+		$is_p_body = false;
+	}
+	
 }
 #echo "<pre>";
 #print_r($results);
@@ -134,26 +153,38 @@ foreach($results as $element) {
 }
 */
 
-// transform array([node,value]) into array([h1, h2, h3, h4, p])
+// transform array([node,value]) into array([h1, h2, h3, h4, p, pre])
 $data = array();
 $results2 = array();
+$in_p = false;
+$in_pre = false;
 foreach($results as $element) {
+	// remove h4+p+pre from $data if current is not pre any more
+	if(
+		$in_pre && $element['node'] != 'pre' 
+		|| ($in_p && ($element['node'] != 'pre' && $element['node'] != 'p')) 
+	) {
+		$in_pre = false;
+		$results2[] = $data;
+		unset($data['h4'], $data['p'], $data['pre']);
+	}
+	
 	// reset $data if we go to next h1
 	if($element['node'] == 'h1' && $data['h1'] != $element['value']) {
+		//if(count($data) > 3) $results2[] = $data; // save data if there is data and not just reset
 		$data = array();
 	};
-	$data[$element['node']] = $element['value'];
-	// remove h4+p from $data if p was added
-	if($element['node'] == 'p') {
-		$results2[] = $data;
-		unset($data['p'], $data['h4']);
+
+	// collect
+	if($element['node'] != 'pre') {
+		$data[$element['node']] = $element['value'];
+		if($element['node'] == 'p') { $in_p = true; } else { $in_p = false; }
+	} elseif(count($data) > 0) {
+		$data[$element['node']][] = $element['value'];
+		$in_pre = true;
 	}
 }
-#echo "<pre>";
-#print_r($results2);
-$output = print_r($results2, true);
-file_put_contents('3_array_h1_h2_h3.txt', $output);
-
+#echo "FOOBAR";
 #print_r($results2);
 #exit;
 $output = print_r($results2, true);
@@ -190,6 +221,8 @@ foreach($results2 as $k => $v) {
 	$p = explode(". ", $v['p']);
 	$results2[$k]['intro'] = $p[0];
 	if($p[1]) $results2[$k]['intro'] .= '.'; // add dot at the end if it was a split
+	// pre
+	$results2[$k]['pre'] = $v['pre'];
 	
 }
 #echo "<pre>";
@@ -201,7 +234,7 @@ file_put_contents('4_mangled_data.txt', $output);
 // transform into multi-dimensional array
 $results3 = array('data' => array(), 'user' => array(), 'master-data' => array());
 foreach($results2 as $_data) {
-	$details = array('endpoint' => $_data['endpoint'], 'method' => $_data['method'], 'emoji' => $_data['emoji'], 'intro' => $_data['intro'], 'p' => $_data['p']);
+	$details = array('endpoint' => $_data['endpoint'], 'method' => $_data['method'], 'emoji' => $_data['emoji'], 'intro' => $_data['intro'], 'p' => $_data['p'], 'pre' => $_data['pre']);
 	if(
 		$_data['h1'] == 'Certifications' 
 		|| $_data['h1'] == 'Genres' 
@@ -226,9 +259,9 @@ foreach($results2 as $_data) {
 }
 #echo "<pre>";
 #print_r($results3);
-#exit;
 $output = print_r($results3, true);
 file_put_contents('5_multidimensional.txt', $output);
+#exit;
 
 // define areas
 $areas = array(
@@ -486,7 +519,7 @@ function getInnerLi($key, $group, $thing, $name, $details) {
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
-	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']).'<br>';
+	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']).' - '.count($details['pre']).' response examples<br>';
 	if($details['duplicate']) {
 		echo '⚠ Duplicate at <a href="#'.getIdString($details['duplicate'][0], $details['duplicate'][1], $details['duplicate'][2], $details['duplicate'][3]).'">'.$areas[$details['duplicate'][0]][0].' > '.$details['duplicate'][1].' > '.$details['duplicate'][2].' > '.$details['duplicate'][3].'</a><br>';
 	}
