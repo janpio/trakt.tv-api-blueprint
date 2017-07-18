@@ -295,6 +295,11 @@ function getClassstring($class) {
 	if($class == 'friends') $class = 'follow '.$class;
 	if($class == 'scrobble') $class = 'watch '.$class;
 	if($class == 'history') $class = 'watched '.$class;
+	
+	if($class == 'movie') $class = 'movies '.$class;
+	if($class == 'show') $class = 'shows '.$class;
+	if($class == 'season') $class = 'seasons '.$class;
+	if($class == 'episode') $class = 'episodes '.$class;
 
 	// complete replacement
 	if($class == 'comment') $class = 'comments';
