@@ -27,7 +27,7 @@ function showDOMNode(DOMNode $domNode) {
 }
 $array = array();
 showDOMNode($doc, $array);
-#print_r($array);
+#echo "<pre>"; print_r($array);
 #exit;
 
 // filter array of all "nodes" to entries we are interested in (h1 = Group + h2,h3,h4,p)
@@ -120,6 +120,7 @@ foreach($array as $element) {
 		$results[] = $element;
 	}
 }
+#echo "<pre>";
 #print_r($results);
 #exit;
 
@@ -144,6 +145,8 @@ foreach($results as $element) {
 		unset($data['p'], $data['h4']);
 	}
 }
+#echo "<pre>";
+#print_r($results2);
 #print_r($results2);
 #exit;
 
@@ -179,6 +182,7 @@ foreach($results2 as $k => $v) {
 	if($p[1]) $results2[$k]['intro'] .= '.'; // add dot at the end if it was a split
 	
 }
+#echo "<pre>";
 #print_r($results2);
 #exit;
 
@@ -208,6 +212,7 @@ foreach($results2 as $_data) {
 		if(!$results3['user'][$_data['h1']]) $results3['user'][$_data['h1']] = array();
 	}
 }
+#echo "<pre>";
 #print_r($results3);
 #exit;
 
