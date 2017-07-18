@@ -298,8 +298,8 @@ function getClassstring($class) {
 	
 	if($class == 'movie') $class = 'movies '.$class;
 	if($class == 'show') $class = 'shows '.$class;
-	if($class == 'season') $class = 'seasons '.$class;
-	if($class == 'episode') $class = 'episodes '.$class;
+	if($class == 'season') $class = 'shows seasons '.$class;
+	if($class == 'episode') $class = 'shows seasons episodes '.$class;
 
 	// complete replacement
 	if($class == 'comment') $class = 'comments';
