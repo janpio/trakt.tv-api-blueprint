@@ -337,21 +337,27 @@ function getReturnTypes($text) {
 	$possible = array(
 		// show
 		'Show' => array('Returns a single shows'),
-		'Show[]' => array('Returns all shows being', 'Returns all shows updated', 'Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres', 'Returns the most popular shows', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns related and similar shows', 'Personalized show recommendations'),
+		'Show[]' => array('Returns the most popular shows', 'Returns related and similar shows', 'Personalized show recommendations'),
+		'object[] (includes Episode, Show)' => array('Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres'),
+		'object[] (includes Show)' => array('Returns all shows being', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns all shows updated'),
 		'Season[]' => array('Returns all seasons'),
 		'Episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
 		'Episode[]' => array('Returns all episodes'),
 		
 		// movie
 		'Movie' => array('Returns a single movie'),
-		'Movie[]' => array('Returns all movies with a', 'Returns all movies being ', 'Returns all movies updated', 'Returns the most popular movies', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
+		'Movie[]' => array('Returns the most popular movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
+		'object[] (includes Movie)' => array('Returns all movies with a', 'Returns all movies being ', 'Returns all movies updated', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies'),
 		
 		// comment
 		'Comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
 		'Comment[]' => array('Returns all top level comments', 'Returns comments', 'Returns all replies'),
 		
+		// rating
+		'Rating[] (object with Movie, Show, Season, or Episode)' => array('Get a user\'s ratings'),
+		
 		// user
-		'User' => array('Get a user'),
+		'User' => array('Get a user\'s profile'),
 		'User[]' => array('Returns all users'),
 		
 		// follow
@@ -378,15 +384,15 @@ function getReturnTypes($text) {
 		'Liked item[] (object with Comment, List)' => array('Get items a user likes'),
 	
 		// scrobble
-		'Scrobble' => array('Use this method when the video'),
-		'Playback[]' => array('Whenever a scrobble is paused'),
+		'Scrobble (object with Movie or Episode)' => array('Use this method when the video'),
+		'Playback[] (object with Movie | object with Episode, Show' => array('Whenever a scrobble is paused'),
 		
 		// watch
 		'Watching (object with Movie, Episode)' => array('Returns a movie or episode if the user is currently watching '),
 		'Watched[] (object with Movie | object with Show, Season[])' => array('Returns all movies or shows a user has watched'), 
-		'History (object with Movie, Episode)' => array('Check into a movie or episode'),
-		'History[] (object with Movie, Episode)' => array('Returns movies and episodes that a user has watched'),
-		'Activity' => array('This method is a useful first step'),
+		'History (object with Movie or Episode)' => array('Check into a movie or episode'),
+		'History[] (object with Movie or Episode)' => array('Returns movies and episodes that a user has watched'),
+		'Activity (obbject with timestamps)' => array('This method is a useful first step'),
 		
 		// progress
 		'Progress (object with Season[], Episode (next_episode))' => array('Returns collection progress', 'Returns watched progress'),
