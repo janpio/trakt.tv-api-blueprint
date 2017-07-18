@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Overview of the trakt.tv API Concepts and Endpoints » Betamode</title>
+	<title>Overview of the trakt.tv API Concepts and Endpoints</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">	
 	
 <style>
@@ -138,12 +138,14 @@ function addCheckboxes() {
     var url = location.href;
 	var hash = window.location.hash;
 	if(hash != null) {
-	console.log('try to scroll!');
+		console.log('try to scroll!');
 		//location.href = hash;  
 		
 		var h = hash.replace("#", "");
-		var top = document.getElementById(h).offsetTop; //Getting Y of target element
-		window.scrollTo(0, top);  
+		if(document.getElementById(h)) {
+			var top = document.getElementById(h).offsetTop; //Getting Y of target element
+			window.scrollTo(0, top);  
+		}
 		
 		//document.getElementById(h).scrollIntoView();
 	}
