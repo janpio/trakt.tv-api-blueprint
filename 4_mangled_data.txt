@@ -1,0 +1,2481 @@
+Array
+(
+    [0] => Array
+        (
+            [h1] => Calendars
+            [h2] => My Shows
+            [h3] => Get shows
+            [p] => Returns all shows airing during the time period specified.
+            [endpoint] => /calendars/my/shows/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all shows airing during the time period specified.
+        )
+
+    [1] => Array
+        (
+            [h1] => Calendars
+            [h2] => My New Shows
+            [h3] => Get new shows
+            [p] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+            [endpoint] => /calendars/my/shows/new/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+        )
+
+    [2] => Array
+        (
+            [h1] => Calendars
+            [h2] => My Season Premieres
+            [h3] => Get season premieres
+            [p] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+            [endpoint] => /calendars/my/shows/premieres/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+        )
+
+    [3] => Array
+        (
+            [h1] => Calendars
+            [h2] => My Movies
+            [h3] => Get movies
+            [p] => Returns all movies with a release date during the time period specified.
+            [endpoint] => /calendars/my/movies/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all movies with a release date during the time period specified.
+        )
+
+    [4] => Array
+        (
+            [h1] => Calendars
+            [h2] => My DVD
+            [h3] => Get DVD releases
+            [p] => Returns all movies with a DVD release date during the time period specified.
+            [endpoint] => /calendars/my/dvd/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all movies with a DVD release date during the time period specified.
+        )
+
+    [5] => Array
+        (
+            [h1] => Calendars
+            [h2] => All Shows
+            [h3] => Get shows
+            [p] => Returns all shows airing during the time period specified.
+            [endpoint] => /calendars/all/shows/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all shows airing during the time period specified.
+        )
+
+    [6] => Array
+        (
+            [h1] => Calendars
+            [h2] => All New Shows
+            [h3] => Get new shows
+            [p] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+            [endpoint] => /calendars/all/shows/new/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+        )
+
+    [7] => Array
+        (
+            [h1] => Calendars
+            [h2] => All Season Premieres
+            [h3] => Get season premieres
+            [p] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+            [endpoint] => /calendars/all/shows/premieres/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+        )
+
+    [8] => Array
+        (
+            [h1] => Calendars
+            [h2] => All Movies
+            [h3] => Get movies
+            [p] => Returns all movies with a release date during the time period specified.
+            [endpoint] => /calendars/all/movies/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all movies with a release date during the time period specified.
+        )
+
+    [9] => Array
+        (
+            [h1] => Calendars
+            [h2] => All DVD
+            [h3] => Get DVD releases
+            [p] => Returns all movies with a DVD release date during the time period specified.
+            [endpoint] => /calendars/all/dvd/{start_date}/{days}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all movies with a DVD release date during the time period specified.
+        )
+
+    [10] => Array
+        (
+            [h1] => Checkin
+            [h2] => Checkin
+            [h3] => Check into an item
+            [p] => Check into a movie or episode. This should be tied to a user action to manually indicate they are watching something. The item will display as watching on the site, then automatically switch to watched status once the duration has elapsed. A unique history id (64-bit integer) will be returned and can be used to reference this checkin directly.
+            [endpoint] => /checkin
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Check into a movie or episode.
+        )
+
+    [11] => Array
+        (
+            [h1] => Checkin
+            [h2] => Checkin
+            [h3] => Delete any active checkins
+            [p] => Removes any active checkins, no need to provide a specific item.
+            [endpoint] => /checkin
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Removes any active checkins, no need to provide a specific item.
+        )
+
+    [12] => Array
+        (
+            [h1] => Certifications
+            [h2] => List
+            [h3] => Get certifications
+            [p] => Get a list of all certifications, including names, slugs, and descriptions.
+            [endpoint] => /certifications/{type}
+            [method] => GET
+            [intro] => Get a list of all certifications, including names, slugs, and descriptions.
+        )
+
+    [13] => Array
+        (
+            [h1] => Comments
+            [h2] => Comments
+            [h3] => Post a comment
+            [p] => Add a new comment to a movie, show, season, episode, or list. Make sure to allow and encourage spoilers to be indicated in your app and follow the rules listed above.
+            [endpoint] => /comments
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add a new comment to a movie, show, season, episode, or list.
+        )
+
+    [14] => Array
+        (
+            [h1] => Comments
+            [h2] => Comment
+            [h3] => Get a comment or reply
+            [p] => Returns a single comment and indicates how many replies it has. Use /comments/:id/replies to get the actual replies.
+            [endpoint] => /comments/{id}
+            [method] => GET
+            [intro] => Returns a single comment and indicates how many replies it has.
+        )
+
+    [15] => Array
+        (
+            [h1] => Comments
+            [h2] => Comment
+            [h3] => Update a comment or reply
+            [p] => Update a single comment created within the last hour. The OAuth user must match the author of the comment in order to update it.
+            [endpoint] => /comments/{id}
+            [method] => PUT
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Update a single comment created within the last hour.
+        )
+
+    [16] => Array
+        (
+            [h1] => Comments
+            [h2] => Comment
+            [h3] => Delete a comment or reply
+            [p] => Delete a single comment created within the last hour. This also effectively removes any replies this comment has. The OAuth user must match the author of the comment in order to delete it.
+            [endpoint] => /comments/{id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Delete a single comment created within the last hour.
+        )
+
+    [17] => Array
+        (
+            [h1] => Comments
+            [h2] => Replies
+            [h3] => Get replies for a comment
+            [p] => Returns all replies for a comment. It is possible these replies could have replies themselves, so in that case you would just call /comments/:id/replies again with the new comment id.
+            [endpoint] => /comments/{id}/replies
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all replies for a comment.
+        )
+
+    [18] => Array
+        (
+            [h1] => Comments
+            [h2] => Replies
+            [h3] => Post a reply for a comment
+            [p] => Add a new reply to an existing comment. Make sure to allow and encourage spoilers to be indicated in your app and follow the rules listed above.
+            [endpoint] => /comments/{id}/replies
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add a new reply to an existing comment.
+        )
+
+    [19] => Array
+        (
+            [h1] => Comments
+            [h2] => Like
+            [h3] => Like a comment
+            [p] => Votes help determine popular comments. Only one like is allowed per comment per user.
+            [endpoint] => /comments/{id}/like
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Votes help determine popular comments.
+        )
+
+    [20] => Array
+        (
+            [h1] => Comments
+            [h2] => Like
+            [h3] => Remove like on a comment
+            [p] => Remove a like on a comment.
+            [endpoint] => /comments/{id}/like
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove a like on a comment.
+        )
+
+    [21] => Array
+        (
+            [h1] => Genres
+            [h2] => List
+            [h3] => Get genres
+            [p] => Get a list of all genres, including names and slugs.
+            [endpoint] => /genres/{type}
+            [method] => GET
+            [intro] => Get a list of all genres, including names and slugs.
+        )
+
+    [22] => Array
+        (
+            [h1] => Movies
+            [h2] => Trending
+            [h3] => Get trending movies
+            [p] => Returns all movies being watched right now. Movies with the most users are returned first.
+            [endpoint] => /movies/trending
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all movies being watched right now.
+        )
+
+    [23] => Array
+        (
+            [h1] => Movies
+            [h2] => Popular
+            [h3] => Get popular movies
+            [p] => Returns the most popular movies. Popularity is calculated using the rating percentage and the number of ratings.
+            [endpoint] => /movies/popular
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most popular movies.
+        )
+
+    [24] => Array
+        (
+            [h1] => Movies
+            [h2] => Played
+            [h3] => Get the most played movies
+            [p] => Returns the most played (a single user can watch multiple times) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /movies/played/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most played (a single user can watch multiple times) movies in the specified time period, defaulting to weekly.
+        )
+
+    [25] => Array
+        (
+            [h1] => Movies
+            [h2] => Watched
+            [h3] => Get the most watched movies
+            [p] => Returns the most watched (unique users) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /movies/watched/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most watched (unique users) movies in the specified time period, defaulting to weekly.
+        )
+
+    [26] => Array
+        (
+            [h1] => Movies
+            [h2] => Collected
+            [h3] => Get the most Collected movies
+            [p] => Returns the most collected (unique users) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /movies/collected/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most collected (unique users) movies in the specified time period, defaulting to weekly.
+        )
+
+    [27] => Array
+        (
+            [h1] => Movies
+            [h2] => Anticipated
+            [h3] => Get the most anticipated movies
+            [p] => Returns the most anticipated movies based on the number of lists a movie appears on.
+            [endpoint] => /movies/anticipated
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most anticipated movies based on the number of lists a movie appears on.
+        )
+
+    [28] => Array
+        (
+            [h1] => Movies
+            [h2] => Box Office
+            [h3] => Get the weekend box office
+            [p] => Returns the top 10 grossing movies in the U.S. box office last weekend. Updated every Monday morning.
+            [endpoint] => /movies/boxoffice
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns the top 10 grossing movies in the U.S.
+        )
+
+    [29] => Array
+        (
+            [h1] => Movies
+            [h2] => Updates
+            [h3] => Get recently updated movies
+            [p] => Returns all movies updated since the specified UTC date. We recommended storing the date you can be efficient using this method moving forward. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+            [endpoint] => /movies/updates/{start_date}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all movies updated since the specified UTC date.
+        )
+
+    [30] => Array
+        (
+            [h1] => Movie
+            [h2] => Summary
+            [h3] => Get a movie
+            [p] => Returns a single movie's details.
+            [endpoint] => /movies/{id}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns a single movie's details.
+        )
+
+    [31] => Array
+        (
+            [h1] => Movie
+            [h2] => Aliases
+            [h3] => Get all movie aliases
+            [p] => Returns all title aliases for a movie.  Includes country where name is different.
+            [endpoint] => /movies/{id}/aliases
+            [method] => GET
+            [intro] => Returns all title aliases for a movie.
+        )
+
+    [32] => Array
+        (
+            [h1] => Movie
+            [h2] => Releases
+            [h3] => Get all movie releases
+            [p] => Returns all releases for a movie including country, certification, release date, release type, and note. The release type can be set to unknown, premiere, limited, theatrical, digital, physical, or tv. The note might have optional info such as the film festival name for a premiere release or Blu-ray specs for a physical release. We pull this info from TMDB.
+            [endpoint] => /movies/{id}/releases/{country}
+            [method] => GET
+            [intro] => Returns all releases for a movie including country, certification, release date, release type, and note.
+        )
+
+    [33] => Array
+        (
+            [h1] => Movie
+            [h2] => Translations
+            [h3] => Get all movie translations
+            [p] => Returns all translations for a movie, including language and translated values for title, tagline and overview.
+            [endpoint] => /movies/{id}/translations/{language}
+            [method] => GET
+            [intro] => Returns all translations for a movie, including language and translated values for title, tagline and overview.
+        )
+
+    [34] => Array
+        (
+            [h1] => Movie
+            [h2] => Comments
+            [h3] => Get all movie comments
+            [p] => Returns all top level comments for a movie. By default, the newest comments are returned first.
+            [endpoint] => /movies/{id}/comments/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all top level comments for a movie.
+        )
+
+    [35] => Array
+        (
+            [h1] => Movie
+            [h2] => Lists
+            [h3] => Get lists containing this movie
+            [p] => Returns all lists that contain this movie. By default, personal lists are returned sorted by the most popular.
+            [endpoint] => /movies/{id}/lists/{type}/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all lists that contain this movie.
+        )
+
+    [36] => Array
+        (
+            [h1] => Movie
+            [h2] => People
+            [h3] => Get all people for a movie
+            [p] => Returns all cast and crew for a movie. Each cast member will have a character and a standard person object.
+            [endpoint] => /movies/{id}/people
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all cast and crew for a movie.
+        )
+
+    [37] => Array
+        (
+            [h1] => Movie
+            [h2] => Ratings
+            [h3] => Get movie ratings
+            [p] => Returns rating (between 0 and 10) and distribution for a movie.
+            [endpoint] => /movies/{id}/ratings
+            [method] => GET
+            [intro] => Returns rating (between 0 and 10) and distribution for a movie.
+        )
+
+    [38] => Array
+        (
+            [h1] => Movie
+            [h2] => Related
+            [h3] => Get related movies
+            [p] => Returns related and similar movies.
+            [endpoint] => /movies/{id}/related
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns related and similar movies.
+        )
+
+    [39] => Array
+        (
+            [h1] => Movie
+            [h2] => Stats
+            [h3] => Get movie stats
+            [p] => Returns lots of movie stats.
+            [endpoint] => /movies/{id}/stats
+            [method] => GET
+            [intro] => Returns lots of movie stats.
+        )
+
+    [40] => Array
+        (
+            [h1] => Movie
+            [h2] => Watching
+            [h3] => Get users watching right now
+            [p] => Returns all users watching this movie right now.
+            [endpoint] => /movies/{id}/watching
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all users watching this movie right now.
+        )
+
+    [41] => Array
+        (
+            [h1] => Networks
+            [h2] => List
+            [h3] => Get networks
+            [p] => Get a list of all TV networks, including the name.
+            [endpoint] => /networks
+            [method] => GET
+            [intro] => Get a list of all TV networks, including the name.
+        )
+
+    [42] => Array
+        (
+            [h1] => People
+            [h2] => Summary
+            [h3] => Get a single person
+            [p] => Returns a single person's details.
+            [endpoint] => /people/{id}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns a single person's details.
+        )
+
+    [43] => Array
+        (
+            [h1] => People
+            [h2] => Movies
+            [h3] => Get movie credits
+            [p] => Returns all movies where this person is in the cast or crew. Each cast object will have a character and a standard movie object.
+            [endpoint] => /people/{id}/movies
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all movies where this person is in the cast or crew.
+        )
+
+    [44] => Array
+        (
+            [h1] => People
+            [h2] => Shows
+            [h3] => Get show credits
+            [p] => Returns all shows where this person is in the cast or crew. Each cast object will have a character and a standard show object.
+            [endpoint] => /people/{id}/shows
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all shows where this person is in the cast or crew.
+        )
+
+    [45] => Array
+        (
+            [h1] => Recommendations
+            [h2] => Movies
+            [h3] => Get movie recommendations
+            [p] => Personalized movie recommendations for a user. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+            [endpoint] => /recommendations/movies
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Personalized movie recommendations for a user.
+        )
+
+    [46] => Array
+        (
+            [h1] => Recommendations
+            [h2] => Hide Movie
+            [h3] => Hide a movie recommendation
+            [p] => Hide a movie from getting recommended anymore.
+            [endpoint] => /recommendations/movies/{id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Hide a movie from getting recommended anymore.
+        )
+
+    [47] => Array
+        (
+            [h1] => Recommendations
+            [h2] => Shows
+            [h3] => Get show recommendations
+            [p] => Personalized show recommendations for a user. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+            [endpoint] => /recommendations/shows
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Personalized show recommendations for a user.
+        )
+
+    [48] => Array
+        (
+            [h1] => Recommendations
+            [h2] => Hide Show
+            [h3] => Hide a show recommendation
+            [p] => Hide a show from getting recommended anymore.
+            [endpoint] => /recommendations/shows/{id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Hide a show from getting recommended anymore.
+        )
+
+    [49] => Array
+        (
+            [h1] => Scrobble
+            [h2] => Start
+            [h3] => Start watching in a media center
+            [p] => Use this method when the video initially starts playing or is unpaused. This will remove any playback progress if it exists.
+            [endpoint] => /scrobble/start
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Use this method when the video initially starts playing or is unpaused.
+        )
+
+    [50] => Array
+        (
+            [h1] => Scrobble
+            [h2] => Pause
+            [h3] => Pause watching in a media center
+            [p] => Use this method when the video is paused. The playback progress will be saved and /sync/playback can be used to resume the video from this exact position. Unpause a video by calling the /scrobble/start method again.
+            [endpoint] => /scrobble/pause
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Use this method when the video is paused.
+        )
+
+    [51] => Array
+        (
+            [h1] => Scrobble
+            [h2] => Stop
+            [h3] => Stop or finish watching in a media center
+            [p] => Use this method when the video is stopped or finishes playing on its own. If the progress is above 80%, the video will be scrobbled and the action will be set to scrobble. A unique history id (64-bit integer) will be returned and can be used to reference this scrobble directly.
+            [endpoint] => /scrobble/stop
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Use this method when the video is stopped or finishes playing on its own.
+        )
+
+    [52] => Array
+        (
+            [h1] => Search
+            [h2] => Text Query
+            [h3] => Get text query results
+            [p] => Search all text fields that a media object contains (i.e. title, overview, etc). Results are ordered by the most relevant score. Specify the type of results by sending a single value or a comma delimited string for multiple types.
+            [endpoint] => /search/{type}{?query}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Search all text fields that a media object contains (i.e.
+        )
+
+    [53] => Array
+        (
+            [h1] => Search
+            [h2] => ID Lookup
+            [h3] => Get ID lookup results
+            [p] => Lookup items by their Trakt, IMDB, TMDB, TVDB, or TVRage ID. If you use the search url without a type it might return multiple items if the id_type is not globally unique. Specify the type of results by sending a single value or a comma delimited string for multiple types.
+            [endpoint] => /search/{id_type}/{id}{?type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Lookup items by their Trakt, IMDB, TMDB, TVDB, or TVRage ID.
+        )
+
+    [54] => Array
+        (
+            [h1] => Shows
+            [h2] => Trending
+            [h3] => Get trending shows
+            [p] => Returns all shows being watched right now. Shows with the most users are returned first.
+            [endpoint] => /shows/trending
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns all shows being watched right now.
+        )
+
+    [55] => Array
+        (
+            [h1] => Shows
+            [h2] => Popular
+            [h3] => Get popular shows
+            [p] => Returns the most popular shows. Popularity is calculated using the rating percentage and the number of ratings.
+            [endpoint] => /shows/popular
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most popular shows.
+        )
+
+    [56] => Array
+        (
+            [h1] => Shows
+            [h2] => Played
+            [h3] => Get the most played shows
+            [p] => Returns the most played (a single user can watch multiple episodes multiple times) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /shows/played/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most played (a single user can watch multiple episodes multiple times) shows in the specified time period, defaulting to weekly.
+        )
+
+    [57] => Array
+        (
+            [h1] => Shows
+            [h2] => Watched
+            [h3] => Get the most watched shows
+            [p] => Returns the most watched (unique users) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /shows/watched/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most watched (unique users) shows in the specified time period, defaulting to weekly.
+        )
+
+    [58] => Array
+        (
+            [h1] => Shows
+            [h2] => Collected
+            [h3] => Get the most collected shows
+            [p] => Returns the most collected (unique users) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+            [endpoint] => /shows/collected/{period}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most collected (unique users) shows in the specified time period, defaulting to weekly.
+        )
+
+    [59] => Array
+        (
+            [h1] => Shows
+            [h2] => Anticipated
+            [h3] => Get the most anticipated shows
+            [p] => Returns the most anticipated shows based on the number of lists a show appears on.
+            [endpoint] => /shows/anticipated
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 1
+                )
+
+            [intro] => Returns the most anticipated shows based on the number of lists a show appears on.
+        )
+
+    [60] => Array
+        (
+            [h1] => Shows
+            [h2] => Updates
+            [h3] => Get recently updated shows
+            [p] => Returns all shows updated since the specified UTC date. We recommended storing the date you can be efficient using this method moving forward. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+            [endpoint] => /shows/updates/{start_date}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all shows updated since the specified UTC date.
+        )
+
+    [61] => Array
+        (
+            [h1] => Show
+            [h2] => Summary
+            [h3] => Get a single show
+            [p] => Returns a single shows's details. If you request extended info, the airs object is relative to the show's country. You can use the day, time, and timezone to construct your own date then convert it to whatever timezone your user is in.
+            [endpoint] => /shows/{id}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns a single shows's details.
+        )
+
+    [62] => Array
+        (
+            [h1] => Show
+            [h2] => Aliases
+            [h3] => Get all show aliases
+            [p] => Returns all title aliases for a show.  Includes country where name is different.
+            [endpoint] => /shows/{id}/aliases
+            [method] => GET
+            [intro] => Returns all title aliases for a show.
+        )
+
+    [63] => Array
+        (
+            [h1] => Show
+            [h2] => Translations
+            [h3] => Get all show translations
+            [p] => Returns all translations for a show, including language and translated values for title and overview.
+            [endpoint] => /shows/{id}/translations/{language}
+            [method] => GET
+            [intro] => Returns all translations for a show, including language and translated values for title and overview.
+        )
+
+    [64] => Array
+        (
+            [h1] => Show
+            [h2] => Comments
+            [h3] => Get all show comments
+            [p] => Returns all top level comments for a show. By default, the newest comments are returned first.
+            [endpoint] => /shows/{id}/comments/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all top level comments for a show.
+        )
+
+    [65] => Array
+        (
+            [h1] => Show
+            [h2] => Lists
+            [h3] => Get lists containing this show
+            [p] => Returns all lists that contain this show. By default, personal lists are returned sorted by the most popular.
+            [endpoint] => /shows/{id}/lists/{type}/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all lists that contain this show.
+        )
+
+    [66] => Array
+        (
+            [h1] => Show
+            [h2] => Collection Progress
+            [h3] => Get show collection progress
+            [p] => Returns collection progress for a show including details on all aired seasons and episodes. The next_episode will be the next episode the user should collect, if there are no upcoming episodes it will be set to null.
+            [endpoint] => /shows/{id}/progress/collection{?hidden,specials,count_specials}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns collection progress for a show including details on all aired seasons and episodes.
+        )
+
+    [67] => Array
+        (
+            [h1] => Show
+            [h2] => Watched Progress
+            [h3] => Get show watched progress
+            [p] => Returns watched progress for a show including details on all aired seasons and episodes. The next_episode will be the next episode the user should watch, if there are no upcoming episodes it will be set to null.
+            [endpoint] => /shows/{id}/progress/watched{?hidden,specials,count_specials}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns watched progress for a show including details on all aired seasons and episodes.
+        )
+
+    [68] => Array
+        (
+            [h1] => Show
+            [h2] => People
+            [h3] => Get all people for a show
+            [p] => Returns all cast and crew for a show. Each cast member will have a character and a standard person object.
+            [endpoint] => /shows/{id}/people
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all cast and crew for a show.
+        )
+
+    [69] => Array
+        (
+            [h1] => Show
+            [h2] => Ratings
+            [h3] => Get show ratings
+            [p] => Returns rating (between 0 and 10) and distribution for a show.
+            [endpoint] => /shows/{id}/ratings
+            [method] => GET
+            [intro] => Returns rating (between 0 and 10) and distribution for a show.
+        )
+
+    [70] => Array
+        (
+            [h1] => Show
+            [h2] => Related
+            [h3] => Get related shows
+            [p] => Returns related and similar shows.
+            [endpoint] => /shows/{id}/related
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns related and similar shows.
+        )
+
+    [71] => Array
+        (
+            [h1] => Show
+            [h2] => Stats
+            [h3] => Get show stats
+            [p] => Returns lots of show stats.
+            [endpoint] => /shows/{id}/stats
+            [method] => GET
+            [intro] => Returns lots of show stats.
+        )
+
+    [72] => Array
+        (
+            [h1] => Show
+            [h2] => Watching
+            [h3] => Get users watching right now
+            [p] => Returns all users watching this show right now.
+            [endpoint] => /shows/{id}/watching
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all users watching this show right now.
+        )
+
+    [73] => Array
+        (
+            [h1] => Show
+            [h2] => Next Episode
+            [h3] => Get next episode
+            [p] => Returns the next scheduled to air episode. If no episode is found, a 204 HTTP status code will be returned.
+            [endpoint] => /shows/{id}/next_episode
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns the next scheduled to air episode.
+        )
+
+    [74] => Array
+        (
+            [h1] => Show
+            [h2] => Last Episode
+            [h3] => Get last episode
+            [p] => Returns the most recently aired episode. If no episode is found, a 204 HTTP status code will be returned.
+            [endpoint] => /shows/{id}/last_episode
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns the most recently aired episode.
+        )
+
+    [75] => Array
+        (
+            [h1] => Seasons
+            [h2] => Summary
+            [h3] => Get all seasons for a show
+            [p] => Returns all seasons for a show including the number of episodes in each season.
+            [endpoint] => /shows/{id}/seasons
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all seasons for a show including the number of episodes in each season.
+        )
+
+    [76] => Array
+        (
+            [h1] => Season
+            [h2] => Season
+            [h3] => Get single season for a show
+            [p] => Returns all episodes for a specific season of a show.
+            [endpoint] => /shows/{id}/seasons/{season}{?translations}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all episodes for a specific season of a show.
+        )
+
+    [77] => Array
+        (
+            [h1] => Season
+            [h2] => Comments
+            [h3] => Get all season comments
+            [p] => Returns all top level comments for a season. By default, the newest comments are returned first.
+            [endpoint] => /shows/{id}/seasons/{season}/comments/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all top level comments for a season.
+        )
+
+    [78] => Array
+        (
+            [h1] => Season
+            [h2] => Lists
+            [h3] => Get lists containing this season
+            [p] => Returns all lists that contain this season. By default, personal lists are returned sorted by the most popular.
+            [endpoint] => /shows/{id}/seasons/{season}/lists/{type}/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all lists that contain this season.
+        )
+
+    [79] => Array
+        (
+            [h1] => Season
+            [h2] => Ratings
+            [h3] => Get season ratings
+            [p] => Returns rating (between 0 and 10) and distribution for a season.
+            [endpoint] => /shows/{id}/seasons/{season}/ratings
+            [method] => GET
+            [intro] => Returns rating (between 0 and 10) and distribution for a season.
+        )
+
+    [80] => Array
+        (
+            [h1] => Season
+            [h2] => Stats
+            [h3] => Get season stats
+            [p] => Returns lots of season stats.
+            [endpoint] => /shows/{id}/seasons/{season}/stats
+            [method] => GET
+            [intro] => Returns lots of season stats.
+        )
+
+    [81] => Array
+        (
+            [h1] => Season
+            [h2] => Watching
+            [h3] => Get users watching right now
+            [p] => Returns all users watching this season right now.
+            [endpoint] => /shows/{id}/seasons/{season}/watching
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all users watching this season right now.
+        )
+
+    [82] => Array
+        (
+            [h1] => Episode
+            [h2] => Summary
+            [h3] => Get a single episode for a show
+            [p] => Returns a single episode's details. All date and times are in UTC and were calculated using the episode's air_date and show's country and air_time.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns a single episode's details.
+        )
+
+    [83] => Array
+        (
+            [h1] => Episode
+            [h2] => Translations
+            [h3] => Get all episode translations
+            [p] => Returns all translations for an episode, including language and translated values for title and overview.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/translations/{language}
+            [method] => GET
+            [intro] => Returns all translations for an episode, including language and translated values for title and overview.
+        )
+
+    [84] => Array
+        (
+            [h1] => Episode
+            [h2] => Comments
+            [h3] => Get all episode comments
+            [p] => Returns all top level comments for an episode. By default, the newest comments are returned first.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/comments/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all top level comments for an episode.
+        )
+
+    [85] => Array
+        (
+            [h1] => Episode
+            [h2] => Lists
+            [h3] => Get lists containing this episode
+            [p] => Returns all lists that contain this episode. By default, personal lists are returned sorted by the most popular.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/lists/{type}/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all lists that contain this episode.
+        )
+
+    [86] => Array
+        (
+            [h1] => Episode
+            [h2] => Ratings
+            [h3] => Get episode ratings
+            [p] => Returns rating (between 0 and 10) and distribution for an episode.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/ratings
+            [method] => GET
+            [intro] => Returns rating (between 0 and 10) and distribution for an episode.
+        )
+
+    [87] => Array
+        (
+            [h1] => Episode
+            [h2] => Stats
+            [h3] => Get episode stats
+            [p] => Returns lots of episode stats.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/stats
+            [method] => GET
+            [intro] => Returns lots of episode stats.
+        )
+
+    [88] => Array
+        (
+            [h1] => Episode
+            [h2] => Watching
+            [h3] => Get users watching right now
+            [p] => Returns all users watching this episode right now.
+            [endpoint] => /shows/{id}/seasons/{season}/episodes/{episode}/watching
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all users watching this episode right now.
+        )
+
+    [89] => Array
+        (
+            [h1] => Sync
+            [h2] => Last Activities
+            [h3] => Get last activity
+            [p] => Returns a list of dates when the user last interacted with trakt.tv for different object types. This method is a useful first step in the syncing process. We recommended caching these dates locally, then you can compare to know exactly what data has changed recently. This can greatly optimize your syncs so you don't pull down a ton of data only to see nothing has actually changed.
+            [endpoint] => /sync/last_activities
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns a list of dates when the user last interacted with trakt.tv for different object types.
+        )
+
+    [90] => Array
+        (
+            [h1] => Sync - Playback
+            [h2] => Playback
+            [h3] => Get playback progress
+            [p] => Whenever a scrobble is paused, the playback progress is saved. Use this progress to sync up playback across different media centers or apps. For example, you can start watching a movie in a media center, stop it, then resume on your tablet from the same spot. Each item will have the progress percentage between 0 and 100.
+            [endpoint] => /sync/playback/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Whenever a scrobble is paused, the playback progress is saved.
+        )
+
+    [91] => Array
+        (
+            [h1] => Sync - Playback
+            [h2] => Remove Playback
+            [h3] => Remove a playback item
+            [p] => Remove a playback item from a user's playback progress list. A 404 will be returned if the id is invalid.
+            [endpoint] => /sync/playback/{id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove a playback item from a user's playback progress list.
+        )
+
+    [92] => Array
+        (
+            [h1] => Sync - Collection
+            [h2] => Get Collection
+            [h3] => Get collection
+            [p] => Get all collected items in a user's collection. A collected item indicates availability to watch digitally or on physical media.
+            [endpoint] => /sync/collection/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get all collected items in a user's collection.
+        )
+
+    [93] => Array
+        (
+            [h1] => Sync - Collection
+            [h2] => Add to Collection
+            [h3] => Add items to collection
+            [p] => Add items to a user's collection. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be collected. If seasons are specified, all episodes in those seasons will be collected.
+            [endpoint] => /sync/collection
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add items to a user's collection.
+        )
+
+    [94] => Array
+        (
+            [h1] => Sync - Collection
+            [h2] => Remove from Collection
+            [h3] => Remove items from collection
+            [p] => Remove one or more items from a user's collection.
+            [endpoint] => /sync/collection/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove one or more items from a user's collection.
+        )
+
+    [95] => Array
+        (
+            [h1] => Sync - Watched
+            [h2] => Get Watched
+            [h3] => Get watched
+            [p] => Returns all movies or shows a user has watched sorted by most plays. If type is set to shows and you add ?extended=noseasons to the URL, it won't return season or episode info.
+            [endpoint] => /sync/watched/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all movies or shows a user has watched sorted by most plays.
+        )
+
+    [96] => Array
+        (
+            [h1] => Sync - History
+            [h2] => Get History
+            [h3] => Get watched history
+            [p] => Returns movies and episodes that a user has watched, sorted by most recent. You can optionally limit the type to movies or episodes. The id (64-bit integer) in each history item uniquely identifies the event and can be used to remove individual events by using the /sync/history/remove method. The action will be set to scrobble, checkin, or watch.
+            [endpoint] => /sync/history/{type}/{id}{?start_at,end_at}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns movies and episodes that a user has watched, sorted by most recent.
+        )
+
+    [97] => Array
+        (
+            [h1] => Sync - History
+            [h2] => Add to History
+            [h3] => Add items to watched history
+            [p] => Add items to a user's watch history. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be added. If seasons are specified, only episodes in those seasons will be added.
+            [endpoint] => /sync/history
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add items to a user's watch history.
+        )
+
+    [98] => Array
+        (
+            [h1] => Sync - History
+            [h2] => Remove from History
+            [h3] => Remove items from history
+            [p] => Remove items from a user's watch history including all watches, scrobbles, and checkins. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be removed. If seasons are specified, only episodes in those seasons will be removed.
+            [endpoint] => /sync/history/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove items from a user's watch history including all watches, scrobbles, and checkins.
+        )
+
+    [99] => Array
+        (
+            [h1] => Sync - Ratings
+            [h2] => Get Ratings
+            [h3] => Get ratings
+            [p] => Get a user's ratings filtered by type. You can optionally filter for a specific rating between 1 and 10. Send a comma separated string for rating if you need multiple ratings.
+            [endpoint] => /sync/ratings/{type}/{rating}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get a user's ratings filtered by type.
+        )
+
+    [100] => Array
+        (
+            [h1] => Sync - Ratings
+            [h2] => Add Ratings
+            [h3] => Add new ratings
+            [p] => Rate one or more items. Accepts shows, seasons, episodes and movies. If only a show is passed, only the show itself will be rated. If seasons are specified, all of those seasons will be rated.
+            [endpoint] => /sync/ratings
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Rate one or more items.
+        )
+
+    [101] => Array
+        (
+            [h1] => Sync - Ratings
+            [h2] => Remove Ratings
+            [h3] => Remove ratings
+            [p] => Remove ratings for one or more items.
+            [endpoint] => /sync/ratings/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove ratings for one or more items.
+        )
+
+    [102] => Array
+        (
+            [h1] => Sync - Watchlist
+            [h2] => Get Watchlist
+            [h3] => Get watchlist
+            [p] => Returns all items in a user's watchlist filtered by type.
+            [endpoint] => /sync/watchlist/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => optional
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all items in a user's watchlist filtered by type.
+        )
+
+    [103] => Array
+        (
+            [h1] => Sync - Watchlist
+            [h2] => Add to Watchlist
+            [h3] => Add items to watchlist
+            [p] => Add one of more items to a user's watchlist. Accepts shows, seasons, episodes and movies. If only a show is passed, only the show itself will be added. If seasons are specified, all of those seasons will be added.
+            [endpoint] => /sync/watchlist
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add one of more items to a user's watchlist.
+        )
+
+    [104] => Array
+        (
+            [h1] => Sync - Watchlist
+            [h2] => Remove from Watchlist
+            [h3] => Remove items from watchlist
+            [p] => Remove one or more items from a user's watchlist.
+            [endpoint] => /sync/watchlist/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove one or more items from a user's watchlist.
+        )
+
+    [105] => Array
+        (
+            [h1] => Users
+            [h2] => Settings
+            [h3] => Retrieve settings
+            [p] => Get the user's settings so you can align your app's experience with what they're used to on the trakt website.
+            [endpoint] => /users/settings
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Get the user's settings so you can align your app's experience with what they're used to on the trakt website.
+        )
+
+    [106] => Array
+        (
+            [h1] => Users
+            [h2] => Follower Requests
+            [h3] => Get follow requests
+            [p] => List a user's pending follow requests so they can either approve or deny them.
+            [endpoint] => /users/requests
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => List a user's pending follow requests so they can either approve or deny them.
+        )
+
+    [107] => Array
+        (
+            [h1] => Users
+            [h2] => Approve or Deny Follower Requests
+            [h3] => Approve follow request
+            [p] => Approve a follower using the id of the request. If the id is not found, was already approved, or was already denied, a 404 error will be returned.
+            [endpoint] => /users/requests/{id}
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Approve a follower using the id of the request.
+        )
+
+    [108] => Array
+        (
+            [h1] => Users
+            [h2] => Approve or Deny Follower Requests
+            [h3] => Deny follow request
+            [p] => Deny a follower using the id of the request. If the id is not found, was already approved, or was already denied, a 404 error will be returned.
+            [endpoint] => /users/requests/{id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Deny a follower using the id of the request.
+        )
+
+    [109] => Array
+        (
+            [h1] => Users
+            [h2] => Hidden Items
+            [h3] => Get hidden items
+            [p] => Get hidden items for a section. This will return an array of standard media objects. You can optionally limit the type of results to return.
+            [endpoint] => /users/hidden/{section}{?type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get hidden items for a section.
+        )
+
+    [110] => Array
+        (
+            [h1] => Users
+            [h2] => Add Hidden Items
+            [h3] => Add hidden items
+            [p] => Hide items for a specific section. Here's what type of items can hidden for each section.
+            [endpoint] => /users/hidden/{section}
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Hide items for a specific section.
+        )
+
+    [111] => Array
+        (
+            [h1] => Users
+            [h2] => Remove Hidden Items
+            [h3] => Remove hidden items
+            [p] => Unhide items for a specific section. Here's what type of items can unhidden for each section.
+            [endpoint] => /users/hidden/{section}/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Unhide items for a specific section.
+        )
+
+    [112] => Array
+        (
+            [h1] => Users
+            [h2] => Likes
+            [h3] => Get likes
+            [p] => Get items a user likes. This will return an array of standard media objects. You can optionally limit the type of results to return.
+            [endpoint] => /users/likes/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Get items a user likes.
+        )
+
+    [113] => Array
+        (
+            [h1] => Users
+            [h2] => Profile
+            [h3] => Get user profile
+            [p] => Get a user's profile information. If the user is private, info will only be returned if you send OAuth and are either that user or an approved follower. Adding ?extended=vip will return some additional VIP related fields so you can display the user's Trakt VIP status and year count.
+            [endpoint] => /users/{id}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get a user's profile information.
+        )
+
+    [114] => Array
+        (
+            [h1] => Users
+            [h2] => Collection
+            [h3] => Get collection
+            [p] => Get all collected items in a user's collection. A collected item indicates availability to watch digitally or on physical media.
+            [endpoint] => /users/{id}/collection/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get all collected items in a user's collection.
+        )
+
+    [115] => Array
+        (
+            [h1] => Users
+            [h2] => Comments
+            [h3] => Get comments
+            [p] => Returns comments a user has posted sorted by most recent.
+            [endpoint] => /users/{id}/comments/{comment_type}/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns comments a user has posted sorted by most recent.
+        )
+
+    [116] => Array
+        (
+            [h1] => Users
+            [h2] => Lists
+            [h3] => Get a user's custom lists
+            [p] => Returns all custom lists for a user. Use the /users/:id/lists/:list_id/items method to get the actual items a specific list contains.
+            [endpoint] => /users/{id}/lists
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all custom lists for a user.
+        )
+
+    [117] => Array
+        (
+            [h1] => Users
+            [h2] => Lists
+            [h3] => Create custom list
+            [p] => Create a new custom list. The name is the only required field, but the other info is recommended to ask for.
+            [endpoint] => /users/{id}/lists
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Create a new custom list.
+        )
+
+    [118] => Array
+        (
+            [h1] => Users
+            [h2] => List
+            [h3] => Get custom list
+            [p] => Returns a single custom list. Use the /users/:id/lists/:list_id/items method to get the actual items this list contains.
+            [endpoint] => /users/{id}/lists/{list_id}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns a single custom list.
+        )
+
+    [119] => Array
+        (
+            [h1] => Users
+            [h2] => List
+            [h3] => Update custom list
+            [p] => Update a custom list by sending 1 or more parameters. If you update the list name, the original slug will still be retained so existing references to this list won't break.
+            [endpoint] => /users/{id}/lists/{list_id}
+            [method] => PUT
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Update a custom list by sending 1 or more parameters.
+        )
+
+    [120] => Array
+        (
+            [h1] => Users
+            [h2] => List
+            [h3] => Delete a user's custom list
+            [p] => Remove a custom list and all items it contains.
+            [endpoint] => /users/{id}/lists/{list_id}
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove a custom list and all items it contains.
+        )
+
+    [121] => Array
+        (
+            [h1] => Users
+            [h2] => List Like
+            [h3] => Like a list
+            [p] => Votes help determine popular lists. Only one like is allowed per list per user.
+            [endpoint] => /users/{id}/lists/{list_id}/like
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Votes help determine popular lists.
+        )
+
+    [122] => Array
+        (
+            [h1] => Users
+            [h2] => List Like
+            [h3] => Remove like on a list
+            [p] => Remove a like on a list.
+            [endpoint] => /users/{id}/lists/{list_id}/like
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove a like on a list.
+        )
+
+    [123] => Array
+        (
+            [h1] => Users
+            [h2] => List Items
+            [h3] => Get items on a custom list
+            [p] => Get all items on a custom list. Items can be movies, shows, seasons, episodes, or people.
+            [endpoint] => /users/{id}/lists/{list_id}/items/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => optional
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get all items on a custom list.
+        )
+
+    [124] => Array
+        (
+            [h1] => Users
+            [h2] => Add List Items
+            [h3] => Add items to custom list
+            [p] => Add one or more items to a custom list. Items can be movies, shows, seasons, episodes, or people.
+            [endpoint] => /users/{id}/lists/{list_id}/items
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Add one or more items to a custom list.
+        )
+
+    [125] => Array
+        (
+            [h1] => Users
+            [h2] => Remove List Items
+            [h3] => Remove items from custom list
+            [p] => Remove one or more items from a custom list.
+            [endpoint] => /users/{id}/lists/{list_id}/items/remove
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Remove one or more items from a custom list.
+        )
+
+    [126] => Array
+        (
+            [h1] => Users
+            [h2] => List Comments
+            [h3] => Get all list comments
+            [p] => Returns all top level comments for a list. By default, the newest comments are returned first.
+            [endpoint] => /users/{id}/lists/{list_id}/comments/{sort}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => 
+                    [pagination] => 1
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns all top level comments for a list.
+        )
+
+    [127] => Array
+        (
+            [h1] => Users
+            [h2] => Follow
+            [h3] => Follow this user
+            [p] => If the user has a private profile, the follow request will require approval (approved_at will be null). If a user is public, they will be followed immediately (approved_at will have a date).
+            [endpoint] => /users/{id}/follow
+            [method] => POST
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => If the user has a private profile, the follow request will require approval (approved_at will be null).
+        )
+
+    [128] => Array
+        (
+            [h1] => Users
+            [h2] => Follow
+            [h3] => Unfollow this user
+            [p] => Unfollow someone you already follow.
+            [endpoint] => /users/{id}/follow
+            [method] => DELETE
+            [emoji] => Array
+                (
+                    [oauth] => required
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Unfollow someone you already follow.
+        )
+
+    [129] => Array
+        (
+            [h1] => Users
+            [h2] => Followers
+            [h3] => Get followers
+            [p] => Returns all followers including when the relationship began.
+            [endpoint] => /users/{id}/followers
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all followers including when the relationship began.
+        )
+
+    [130] => Array
+        (
+            [h1] => Users
+            [h2] => Following
+            [h3] => Get following
+            [p] => Returns all user's they follow including when the relationship began.
+            [endpoint] => /users/{id}/following
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all user's they follow including when the relationship began.
+        )
+
+    [131] => Array
+        (
+            [h1] => Users
+            [h2] => Friends
+            [h3] => Get friends
+            [p] => Returns all friends for a user including when the relationship began. Friendship is a 2 way relationship where each user follows the other.
+            [endpoint] => /users/{id}/friends
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all friends for a user including when the relationship began.
+        )
+
+    [132] => Array
+        (
+            [h1] => Users
+            [h2] => History
+            [h3] => Get watched history
+            [p] => Returns movies and episodes that a user has watched, sorted by most recent. You can optionally limit the type to movies or episodes. The id (64-bit integer) in each history item uniquely identifies the event and can be used to remove individual events by using the /sync/history/remove method. The action will be set to scrobble, checkin, or watch.
+            [endpoint] => /users/{id}/history/{type}/{item_id}{?start_at,end_at}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 1
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns movies and episodes that a user has watched, sorted by most recent.
+        )
+
+    [133] => Array
+        (
+            [h1] => Users
+            [h2] => Ratings
+            [h3] => Get ratings
+            [p] => Get a user's ratings filtered by type. You can optionally filter for a specific rating between 1 and 10. Send a comma separated string for rating if you need multiple ratings.
+            [endpoint] => /users/{id}/ratings/{type}/{rating}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Get a user's ratings filtered by type.
+        )
+
+    [134] => Array
+        (
+            [h1] => Users
+            [h2] => Watchlist
+            [h3] => Get watchlist
+            [p] => Returns all items in a user's watchlist filtered by type.
+            [endpoint] => /users/{id}/watchlist/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => optional
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all items in a user's watchlist filtered by type.
+        )
+
+    [135] => Array
+        (
+            [h1] => Users
+            [h2] => Watching
+            [h3] => Get watching
+            [p] => Returns a movie or episode if the user is currently watching something.  If they are not, it returns no data and a 204 HTTP status code.
+            [endpoint] => /users/{id}/watching
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns a movie or episode if the user is currently watching something.
+        )
+
+    [136] => Array
+        (
+            [h1] => Users
+            [h2] => Watched
+            [h3] => Get watched
+            [p] => Returns all movies or shows a user has watched sorted by most plays. If type is set to shows and you add ?extended=noseasons to the URL, it won't return season or episode info.
+            [endpoint] => /users/{id}/watched/{type}
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 1
+                    [filters] => 
+                )
+
+            [intro] => Returns all movies or shows a user has watched sorted by most plays.
+        )
+
+    [137] => Array
+        (
+            [h1] => Users
+            [h2] => Stats
+            [h3] => Get stats
+            [p] => Returns stats about the movies, shows, and episodes a user has watched, collected, and rated.
+            [endpoint] => /users/{id}/stats
+            [method] => GET
+            [emoji] => Array
+                (
+                    [oauth] => optional
+                    [pagination] => 
+                    [extended] => 
+                    [filters] => 
+                )
+
+            [intro] => Returns stats about the movies, shows, and episodes a user has watched, collected, and rated.
+        )
+
+)

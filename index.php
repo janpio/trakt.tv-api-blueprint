@@ -272,7 +272,7 @@ foreach($duplicates as $foo) {
 	$results3[$two[0]][$two[1]][$two[2]][$two[3]]['duplicate'] = $one;
 }
 $output = print_r($results3, true);
-file_put_contents('5_multidimensional_with_duplicates.txt', $output);
+file_put_contents('6_multidimensional_with_duplicates.txt', $output);
 
 // output html
 function getEmoji($emoji) {

@@ -1,0 +1,1227 @@
+Array
+(
+    [0] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => My Shows [/calendars/my/shows/{start_date}/{days}]
+            [h3] => Get shows [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info 🎚 Filters
+            [p] => Returns all shows airing during the time period specified.
+        )
+
+    [1] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => My New Shows [/calendars/my/shows/new/{start_date}/{days}]
+            [h3] => Get new shows [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info 🎚 Filters
+            [p] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+        )
+
+    [2] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => My Season Premieres [/calendars/my/shows/premieres/{start_date}/{days}]
+            [h3] => Get season premieres [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info 🎚 Filters
+            [p] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+        )
+
+    [3] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => My Movies [/calendars/my/movies/{start_date}/{days}]
+            [h3] => Get movies [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info 🎚 Filters
+            [p] => Returns all movies with a release date during the time period specified.
+        )
+
+    [4] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => My DVD [/calendars/my/dvd/{start_date}/{days}]
+            [h3] => Get DVD releases [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info 🎚 Filters
+            [p] => Returns all movies with a DVD release date during the time period specified.
+        )
+
+    [5] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => All Shows [/calendars/all/shows/{start_date}/{days}]
+            [h3] => Get shows [GET]
+            [h4] => ✨ Extended Info 🎚 Filters
+            [p] => Returns all shows airing during the time period specified.
+        )
+
+    [6] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => All New Shows [/calendars/all/shows/new/{start_date}/{days}]
+            [h3] => Get new shows [GET]
+            [h4] => ✨ Extended Info 🎚 Filters
+            [p] => Returns all new show premieres (season 1, episode 1) airing during the time period specified.
+        )
+
+    [7] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => All Season Premieres [/calendars/all/shows/premieres/{start_date}/{days}]
+            [h3] => Get season premieres [GET]
+            [h4] => ✨ Extended Info 🎚 Filters
+            [p] => Returns all show premieres (any season, episode 1) airing during the time period specified.
+        )
+
+    [8] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => All Movies [/calendars/all/movies/{start_date}/{days}]
+            [h3] => Get movies [GET]
+            [h4] => ✨ Extended Info 🎚 Filters
+            [p] => Returns all movies with a release date during the time period specified.
+        )
+
+    [9] => Array
+        (
+            [h1] => Group Calendars
+            [h2] => All DVD [/calendars/all/dvd/{start_date}/{days}]
+            [h3] => Get DVD releases [GET]
+            [h4] => ✨ Extended Info 🎚 Filters
+            [p] => Returns all movies with a DVD release date during the time period specified.
+        )
+
+    [10] => Array
+        (
+            [h1] => Group Checkin
+            [h2] => Checkin [/checkin]
+            [h3] => Check into an item [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Check into a movie or episode. This should be tied to a user action to manually indicate they are watching something. The item will display as watching on the site, then automatically switch to watched status once the duration has elapsed. A unique history id (64-bit integer) will be returned and can be used to reference this checkin directly.
+        )
+
+    [11] => Array
+        (
+            [h1] => Group Checkin
+            [h2] => Checkin [/checkin]
+            [h3] => Delete any active checkins [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Removes any active checkins, no need to provide a specific item.
+        )
+
+    [12] => Array
+        (
+            [h1] => Group Certifications
+            [h2] => List [/certifications/{type}]
+            [h3] => Get certifications [GET]
+            [p] => Get a list of all certifications, including names, slugs, and descriptions.
+        )
+
+    [13] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Comments [/comments]
+            [h3] => Post a comment [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add a new comment to a movie, show, season, episode, or list. Make sure to allow and encourage spoilers to be indicated in your app and follow the rules listed above.
+        )
+
+    [14] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Comment [/comments/{id}]
+            [h3] => Get a comment or reply [GET]
+            [p] => Returns a single comment and indicates how many replies it has. Use /comments/:id/replies to get the actual replies.
+        )
+
+    [15] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Comment [/comments/{id}]
+            [h3] => Update a comment or reply [PUT]
+            [h4] => 🔒 OAuth Required
+            [p] => Update a single comment created within the last hour. The OAuth user must match the author of the comment in order to update it.
+        )
+
+    [16] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Comment [/comments/{id}]
+            [h3] => Delete a comment or reply [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Delete a single comment created within the last hour. This also effectively removes any replies this comment has. The OAuth user must match the author of the comment in order to delete it.
+        )
+
+    [17] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Replies [/comments/{id}/replies]
+            [h3] => Get replies for a comment [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all replies for a comment. It is possible these replies could have replies themselves, so in that case you would just call /comments/:id/replies again with the new comment id.
+        )
+
+    [18] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Replies [/comments/{id}/replies]
+            [h3] => Post a reply for a comment [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add a new reply to an existing comment. Make sure to allow and encourage spoilers to be indicated in your app and follow the rules listed above.
+        )
+
+    [19] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Like [/comments/{id}/like]
+            [h3] => Like a comment [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Votes help determine popular comments. Only one like is allowed per comment per user.
+        )
+
+    [20] => Array
+        (
+            [h1] => Group Comments
+            [h2] => Like [/comments/{id}/like]
+            [h3] => Remove like on a comment [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove a like on a comment.
+        )
+
+    [21] => Array
+        (
+            [h1] => Group Genres
+            [h2] => List [/genres/{type}]
+            [h3] => Get genres [GET]
+            [p] => Get a list of all genres, including names and slugs.
+        )
+
+    [22] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Trending [/movies/trending]
+            [h3] => Get trending movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns all movies being watched right now. Movies with the most users are returned first.
+        )
+
+    [23] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Popular [/movies/popular]
+            [h3] => Get popular movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most popular movies. Popularity is calculated using the rating percentage and the number of ratings.
+        )
+
+    [24] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Played [/movies/played/{period}]
+            [h3] => Get the most played movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most played (a single user can watch multiple times) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [25] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Watched [/movies/watched/{period}]
+            [h3] => Get the most watched movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most watched (unique users) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [26] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Collected [/movies/collected/{period}]
+            [h3] => Get the most Collected movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most collected (unique users) movies in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [27] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Anticipated [/movies/anticipated]
+            [h3] => Get the most anticipated movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most anticipated movies based on the number of lists a movie appears on.
+        )
+
+    [28] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Box Office [/movies/boxoffice]
+            [h3] => Get the weekend box office [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns the top 10 grossing movies in the U.S. box office last weekend. Updated every Monday morning.
+        )
+
+    [29] => Array
+        (
+            [h1] => Group Movies
+            [h2] => Updates [/movies/updates/{start_date}]
+            [h3] => Get recently updated movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info
+            [p] => Returns all movies updated since the specified UTC date. We recommended storing the date you can be efficient using this method moving forward. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+        )
+
+    [30] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Summary [/movies/{id}]
+            [h3] => Get a movie [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns a single movie's details.
+        )
+
+    [31] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Aliases [/movies/{id}/aliases]
+            [h3] => Get all movie aliases [GET]
+            [p] => Returns all title aliases for a movie.  Includes country where name is different.
+        )
+
+    [32] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Releases [/movies/{id}/releases/{country}]
+            [h3] => Get all movie releases [GET]
+            [p] => Returns all releases for a movie including country, certification, release date, release type, and note. The release type can be set to unknown, premiere, limited, theatrical, digital, physical, or tv. The note might have optional info such as the film festival name for a premiere release or Blu-ray specs for a physical release. We pull this info from TMDB.
+        )
+
+    [33] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Translations [/movies/{id}/translations/{language}]
+            [h3] => Get all movie translations [GET]
+            [p] => Returns all translations for a movie, including language and translated values for title, tagline and overview.
+        )
+
+    [34] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Comments [/movies/{id}/comments/{sort}]
+            [h3] => Get all movie comments [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all top level comments for a movie. By default, the newest comments are returned first.
+        )
+
+    [35] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Lists [/movies/{id}/lists/{type}/{sort}]
+            [h3] => Get lists containing this movie [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all lists that contain this movie. By default, personal lists are returned sorted by the most popular.
+        )
+
+    [36] => Array
+        (
+            [h1] => Group Movie
+            [h2] => People [/movies/{id}/people]
+            [h3] => Get all people for a movie [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all cast and crew for a movie. Each cast member will have a character and a standard person object.
+        )
+
+    [37] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Ratings [/movies/{id}/ratings]
+            [h3] => Get movie ratings [GET]
+            [p] => Returns rating (between 0 and 10) and distribution for a movie.
+        )
+
+    [38] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Related [/movies/{id}/related]
+            [h3] => Get related movies [GET]
+            [h4] => 📄 Pagination ✨ Extended Info
+            [p] => Returns related and similar movies.
+        )
+
+    [39] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Stats [/movies/{id}/stats]
+            [h3] => Get movie stats [GET]
+            [p] => Returns lots of movie stats.
+        )
+
+    [40] => Array
+        (
+            [h1] => Group Movie
+            [h2] => Watching [/movies/{id}/watching]
+            [h3] => Get users watching right now [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all users watching this movie right now.
+        )
+
+    [41] => Array
+        (
+            [h1] => Group Networks
+            [h2] => List [/networks]
+            [h3] => Get networks [GET]
+            [p] => Get a list of all TV networks, including the name.
+        )
+
+    [42] => Array
+        (
+            [h1] => Group People
+            [h2] => Summary [/people/{id}]
+            [h3] => Get a single person [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns a single person's details.
+        )
+
+    [43] => Array
+        (
+            [h1] => Group People
+            [h2] => Movies [/people/{id}/movies]
+            [h3] => Get movie credits [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all movies where this person is in the cast or crew. Each cast object will have a character and a standard movie object.
+        )
+
+    [44] => Array
+        (
+            [h1] => Group People
+            [h2] => Shows [/people/{id}/shows]
+            [h3] => Get show credits [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all shows where this person is in the cast or crew. Each cast object will have a character and a standard show object.
+        )
+
+    [45] => Array
+        (
+            [h1] => Group Recommendations
+            [h2] => Movies [/recommendations/movies]
+            [h3] => Get movie recommendations [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => Personalized movie recommendations for a user. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+        )
+
+    [46] => Array
+        (
+            [h1] => Group Recommendations
+            [h2] => Hide Movie [/recommendations/movies/{id}]
+            [h3] => Hide a movie recommendation [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Hide a movie from getting recommended anymore.
+        )
+
+    [47] => Array
+        (
+            [h1] => Group Recommendations
+            [h2] => Shows [/recommendations/shows]
+            [h3] => Get show recommendations [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => Personalized show recommendations for a user. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+        )
+
+    [48] => Array
+        (
+            [h1] => Group Recommendations
+            [h2] => Hide Show [/recommendations/shows/{id}]
+            [h3] => Hide a show recommendation [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Hide a show from getting recommended anymore.
+        )
+
+    [49] => Array
+        (
+            [h1] => Group Scrobble
+            [h2] => Start [/scrobble/start]
+            [h3] => Start watching in a media center [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Use this method when the video initially starts playing or is unpaused. This will remove any playback progress if it exists.
+        )
+
+    [50] => Array
+        (
+            [h1] => Group Scrobble
+            [h2] => Pause [/scrobble/pause]
+            [h3] => Pause watching in a media center [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Use this method when the video is paused. The playback progress will be saved and /sync/playback can be used to resume the video from this exact position. Unpause a video by calling the /scrobble/start method again.
+        )
+
+    [51] => Array
+        (
+            [h1] => Group Scrobble
+            [h2] => Stop [/scrobble/stop]
+            [h3] => Stop or finish watching in a media center [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Use this method when the video is stopped or finishes playing on its own. If the progress is above 80%, the video will be scrobbled and the action will be set to scrobble. A unique history id (64-bit integer) will be returned and can be used to reference this scrobble directly.
+        )
+
+    [52] => Array
+        (
+            [h1] => Group Search
+            [h2] => Text Query [/search/{type}{?query}]
+            [h3] => Get text query results [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Search all text fields that a media object contains (i.e. title, overview, etc). Results are ordered by the most relevant score. Specify the type of results by sending a single value or a comma delimited string for multiple types.
+        )
+
+    [53] => Array
+        (
+            [h1] => Group Search
+            [h2] => ID Lookup [/search/{id_type}/{id}{?type}]
+            [h3] => Get ID lookup results [GET]
+            [h4] => 📄 Pagination ✨ Extended Info
+            [p] => Lookup items by their Trakt, IMDB, TMDB, TVDB, or TVRage ID. If you use the search url without a type it might return multiple items if the id_type is not globally unique. Specify the type of results by sending a single value or a comma delimited string for multiple types.
+        )
+
+    [54] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Trending [/shows/trending]
+            [h3] => Get trending shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns all shows being watched right now. Shows with the most users are returned first.
+        )
+
+    [55] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Popular [/shows/popular]
+            [h3] => Get popular shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most popular shows. Popularity is calculated using the rating percentage and the number of ratings.
+        )
+
+    [56] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Played [/shows/played/{period}]
+            [h3] => Get the most played shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most played (a single user can watch multiple episodes multiple times) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [57] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Watched [/shows/watched/{period}]
+            [h3] => Get the most watched shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most watched (unique users) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [58] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Collected [/shows/collected/{period}]
+            [h3] => Get the most collected shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most collected (unique users) shows in the specified time period, defaulting to weekly. All stats are relative to the specific time period.
+        )
+
+    [59] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Anticipated [/shows/anticipated]
+            [h3] => Get the most anticipated shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info 🎚 Filters
+            [p] => Returns the most anticipated shows based on the number of lists a show appears on.
+        )
+
+    [60] => Array
+        (
+            [h1] => Group Shows
+            [h2] => Updates [/shows/updates/{start_date}]
+            [h3] => Get recently updated shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info
+            [p] => Returns all shows updated since the specified UTC date. We recommended storing the date you can be efficient using this method moving forward. By default, 10 results are returned. You can send a limit to get up to 100 results per page.
+        )
+
+    [61] => Array
+        (
+            [h1] => Group Show
+            [h2] => Summary [/shows/{id}]
+            [h3] => Get a single show [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns a single shows's details. If you request extended info, the airs object is relative to the show's country. You can use the day, time, and timezone to construct your own date then convert it to whatever timezone your user is in.
+        )
+
+    [62] => Array
+        (
+            [h1] => Group Show
+            [h2] => Aliases [/shows/{id}/aliases]
+            [h3] => Get all show aliases [GET]
+            [p] => Returns all title aliases for a show.  Includes country where name is different.
+        )
+
+    [63] => Array
+        (
+            [h1] => Group Show
+            [h2] => Translations [/shows/{id}/translations/{language}]
+            [h3] => Get all show translations [GET]
+            [p] => Returns all translations for a show, including language and translated values for title and overview.
+        )
+
+    [64] => Array
+        (
+            [h1] => Group Show
+            [h2] => Comments [/shows/{id}/comments/{sort}]
+            [h3] => Get all show comments [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all top level comments for a show. By default, the newest comments are returned first.
+        )
+
+    [65] => Array
+        (
+            [h1] => Group Show
+            [h2] => Lists [/shows/{id}/lists/{type}/{sort}]
+            [h3] => Get lists containing this show [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all lists that contain this show. By default, personal lists are returned sorted by the most popular.
+        )
+
+    [66] => Array
+        (
+            [h1] => Group Show
+            [h2] => Collection Progress [/shows/{id}/progress/collection{?hidden,specials,count_specials}]
+            [h3] => Get show collection progress [GET]
+            [h4] => 🔒 OAuth Required
+            [p] => Returns collection progress for a show including details on all aired seasons and episodes. The next_episode will be the next episode the user should collect, if there are no upcoming episodes it will be set to null.
+        )
+
+    [67] => Array
+        (
+            [h1] => Group Show
+            [h2] => Watched Progress [/shows/{id}/progress/watched{?hidden,specials,count_specials}]
+            [h3] => Get show watched progress [GET]
+            [h4] => 🔒 OAuth Required
+            [p] => Returns watched progress for a show including details on all aired seasons and episodes. The next_episode will be the next episode the user should watch, if there are no upcoming episodes it will be set to null.
+        )
+
+    [68] => Array
+        (
+            [h1] => Group Show
+            [h2] => People [/shows/{id}/people]
+            [h3] => Get all people for a show [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all cast and crew for a show. Each cast member will have a character and a standard person object.
+        )
+
+    [69] => Array
+        (
+            [h1] => Group Show
+            [h2] => Ratings [/shows/{id}/ratings]
+            [h3] => Get show ratings [GET]
+            [p] => Returns rating (between 0 and 10) and distribution for a show.
+        )
+
+    [70] => Array
+        (
+            [h1] => Group Show
+            [h2] => Related [/shows/{id}/related]
+            [h3] => Get related shows [GET]
+            [h4] => 📄 Pagination ✨ Extended Info
+            [p] => Returns related and similar shows.
+        )
+
+    [71] => Array
+        (
+            [h1] => Group Show
+            [h2] => Stats [/shows/{id}/stats]
+            [h3] => Get show stats [GET]
+            [p] => Returns lots of show stats.
+        )
+
+    [72] => Array
+        (
+            [h1] => Group Show
+            [h2] => Watching [/shows/{id}/watching]
+            [h3] => Get users watching right now [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all users watching this show right now.
+        )
+
+    [73] => Array
+        (
+            [h1] => Group Show
+            [h2] => Next Episode [/shows/{id}/next_episode]
+            [h3] => Get next episode [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns the next scheduled to air episode. If no episode is found, a 204 HTTP status code will be returned.
+        )
+
+    [74] => Array
+        (
+            [h1] => Group Show
+            [h2] => Last Episode [/shows/{id}/last_episode]
+            [h3] => Get last episode [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns the most recently aired episode. If no episode is found, a 204 HTTP status code will be returned.
+        )
+
+    [75] => Array
+        (
+            [h1] => Group Seasons
+            [h2] => Summary [/shows/{id}/seasons]
+            [h3] => Get all seasons for a show [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all seasons for a show including the number of episodes in each season.
+        )
+
+    [76] => Array
+        (
+            [h1] => Group Season
+            [h2] => Season [/shows/{id}/seasons/{season}{?translations}]
+            [h3] => Get single season for a show [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all episodes for a specific season of a show.
+        )
+
+    [77] => Array
+        (
+            [h1] => Group Season
+            [h2] => Comments [/shows/{id}/seasons/{season}/comments/{sort}]
+            [h3] => Get all season comments [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all top level comments for a season. By default, the newest comments are returned first.
+        )
+
+    [78] => Array
+        (
+            [h1] => Group Season
+            [h2] => Lists [/shows/{id}/seasons/{season}/lists/{type}/{sort}]
+            [h3] => Get lists containing this season [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all lists that contain this season. By default, personal lists are returned sorted by the most popular.
+        )
+
+    [79] => Array
+        (
+            [h1] => Group Season
+            [h2] => Ratings [/shows/{id}/seasons/{season}/ratings]
+            [h3] => Get season ratings [GET]
+            [p] => Returns rating (between 0 and 10) and distribution for a season.
+        )
+
+    [80] => Array
+        (
+            [h1] => Group Season
+            [h2] => Stats [/shows/{id}/seasons/{season}/stats]
+            [h3] => Get season stats [GET]
+            [p] => Returns lots of season stats.
+        )
+
+    [81] => Array
+        (
+            [h1] => Group Season
+            [h2] => Watching [/shows/{id}/seasons/{season}/watching]
+            [h3] => Get users watching right now [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all users watching this season right now.
+        )
+
+    [82] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Summary [/shows/{id}/seasons/{season}/episodes/{episode}]
+            [h3] => Get a single episode for a show [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns a single episode's details. All date and times are in UTC and were calculated using the episode's air_date and show's country and air_time.
+        )
+
+    [83] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Translations [/shows/{id}/seasons/{season}/episodes/{episode}/translations/{language}]
+            [h3] => Get all episode translations [GET]
+            [p] => Returns all translations for an episode, including language and translated values for title and overview.
+        )
+
+    [84] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Comments [/shows/{id}/seasons/{season}/episodes/{episode}/comments/{sort}]
+            [h3] => Get all episode comments [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all top level comments for an episode. By default, the newest comments are returned first.
+        )
+
+    [85] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Lists [/shows/{id}/seasons/{season}/episodes/{episode}/lists/{type}/{sort}]
+            [h3] => Get lists containing this episode [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all lists that contain this episode. By default, personal lists are returned sorted by the most popular.
+        )
+
+    [86] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Ratings [/shows/{id}/seasons/{season}/episodes/{episode}/ratings]
+            [h3] => Get episode ratings [GET]
+            [p] => Returns rating (between 0 and 10) and distribution for an episode.
+        )
+
+    [87] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Stats [/shows/{id}/seasons/{season}/episodes/{episode}/stats]
+            [h3] => Get episode stats [GET]
+            [p] => Returns lots of episode stats.
+        )
+
+    [88] => Array
+        (
+            [h1] => Group Episode
+            [h2] => Watching [/shows/{id}/seasons/{season}/episodes/{episode}/watching]
+            [h3] => Get users watching right now [GET]
+            [h4] => ✨ Extended Info
+            [p] => Returns all users watching this episode right now.
+        )
+
+    [89] => Array
+        (
+            [h1] => Group Sync
+            [h2] => Last Activities [/sync/last_activities]
+            [h3] => Get last activity [GET]
+            [h4] => 🔒 OAuth Required
+            [p] => Returns a list of dates when the user last interacted with trakt.tv for different object types. This method is a useful first step in the syncing process. We recommended caching these dates locally, then you can compare to know exactly what data has changed recently. This can greatly optimize your syncs so you don't pull down a ton of data only to see nothing has actually changed.
+        )
+
+    [90] => Array
+        (
+            [h1] => Group Sync - Playback
+            [h2] => Playback [/sync/playback/{type}]
+            [h3] => Get playback progress [GET]
+            [h4] => 🔒 OAuth Required
+            [p] => Whenever a scrobble is paused, the playback progress is saved. Use this progress to sync up playback across different media centers or apps. For example, you can start watching a movie in a media center, stop it, then resume on your tablet from the same spot. Each item will have the progress percentage between 0 and 100.
+        )
+
+    [91] => Array
+        (
+            [h1] => Group Sync - Playback
+            [h2] => Remove Playback [/sync/playback/{id}]
+            [h3] => Remove a playback item [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove a playback item from a user's playback progress list. A 404 will be returned if the id is invalid.
+        )
+
+    [92] => Array
+        (
+            [h1] => Group Sync - Collection
+            [h2] => Get Collection [/sync/collection/{type}]
+            [h3] => Get collection [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => Get all collected items in a user's collection. A collected item indicates availability to watch digitally or on physical media.
+        )
+
+    [93] => Array
+        (
+            [h1] => Group Sync - Collection
+            [h2] => Add to Collection [/sync/collection]
+            [h3] => Add items to collection [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add items to a user's collection. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be collected. If seasons are specified, all episodes in those seasons will be collected.
+        )
+
+    [94] => Array
+        (
+            [h1] => Group Sync - Collection
+            [h2] => Remove from Collection [/sync/collection/remove]
+            [h3] => Remove items from collection [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove one or more items from a user's collection.
+        )
+
+    [95] => Array
+        (
+            [h1] => Group Sync - Watched
+            [h2] => Get Watched [/sync/watched/{type}]
+            [h3] => Get watched [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => Returns all movies or shows a user has watched sorted by most plays. If type is set to shows and you add ?extended=noseasons to the URL, it won't return season or episode info.
+        )
+
+    [96] => Array
+        (
+            [h1] => Group Sync - History
+            [h2] => Get History [/sync/history/{type}/{id}{?start_at,end_at}]
+            [h3] => Get watched history [GET]
+            [h4] => 🔒 OAuth Required 📄 Pagination ✨ Extended Info
+            [p] => Returns movies and episodes that a user has watched, sorted by most recent. You can optionally limit the type to movies or episodes. The id (64-bit integer) in each history item uniquely identifies the event and can be used to remove individual events by using the /sync/history/remove method. The action will be set to scrobble, checkin, or watch.
+        )
+
+    [97] => Array
+        (
+            [h1] => Group Sync - History
+            [h2] => Add to History [/sync/history]
+            [h3] => Add items to watched history [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add items to a user's watch history. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be added. If seasons are specified, only episodes in those seasons will be added.
+        )
+
+    [98] => Array
+        (
+            [h1] => Group Sync - History
+            [h2] => Remove from History [/sync/history/remove]
+            [h3] => Remove items from history [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove items from a user's watch history including all watches, scrobbles, and checkins. Accepts shows, seasons, episodes and movies. If only a show is passed, all episodes for the show will be removed. If seasons are specified, only episodes in those seasons will be removed.
+        )
+
+    [99] => Array
+        (
+            [h1] => Group Sync - Ratings
+            [h2] => Get Ratings [/sync/ratings/{type}/{rating}]
+            [h3] => Get ratings [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => Get a user's ratings filtered by type. You can optionally filter for a specific rating between 1 and 10. Send a comma separated string for rating if you need multiple ratings.
+        )
+
+    [100] => Array
+        (
+            [h1] => Group Sync - Ratings
+            [h2] => Add Ratings [/sync/ratings]
+            [h3] => Add new ratings [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Rate one or more items. Accepts shows, seasons, episodes and movies. If only a show is passed, only the show itself will be rated. If seasons are specified, all of those seasons will be rated.
+        )
+
+    [101] => Array
+        (
+            [h1] => Group Sync - Ratings
+            [h2] => Remove Ratings [/sync/ratings/remove]
+            [h3] => Remove ratings [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove ratings for one or more items.
+        )
+
+    [102] => Array
+        (
+            [h1] => Group Sync - Watchlist
+            [h2] => Get Watchlist [/sync/watchlist/{type}]
+            [h3] => Get watchlist [GET]
+            [h4] => 🔒 OAuth Required 📄 Pagination Optional ✨ Extended Info
+            [p] => Returns all items in a user's watchlist filtered by type.
+        )
+
+    [103] => Array
+        (
+            [h1] => Group Sync - Watchlist
+            [h2] => Add to Watchlist [/sync/watchlist]
+            [h3] => Add items to watchlist [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add one of more items to a user's watchlist. Accepts shows, seasons, episodes and movies. If only a show is passed, only the show itself will be added. If seasons are specified, all of those seasons will be added.
+        )
+
+    [104] => Array
+        (
+            [h1] => Group Sync - Watchlist
+            [h2] => Remove from Watchlist [/sync/watchlist/remove]
+            [h3] => Remove items from watchlist [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove one or more items from a user's watchlist.
+        )
+
+    [105] => Array
+        (
+            [h1] => Group Users
+            [h2] => Settings [/users/settings]
+            [h3] => Retrieve settings [GET]
+            [h4] => 🔒 OAuth Required
+            [p] => Get the user's settings so you can align your app's experience with what they're used to on the trakt website.
+        )
+
+    [106] => Array
+        (
+            [h1] => Group Users
+            [h2] => Follower Requests [/users/requests]
+            [h3] => Get follow requests [GET]
+            [h4] => 🔒 OAuth Required ✨ Extended Info
+            [p] => List a user's pending follow requests so they can either approve or deny them.
+        )
+
+    [107] => Array
+        (
+            [h1] => Group Users
+            [h2] => Approve or Deny Follower Requests [/users/requests/{id}]
+            [h3] => Approve follow request [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Approve a follower using the id of the request. If the id is not found, was already approved, or was already denied, a 404 error will be returned.
+        )
+
+    [108] => Array
+        (
+            [h1] => Group Users
+            [h2] => Approve or Deny Follower Requests [/users/requests/{id}]
+            [h3] => Deny follow request [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Deny a follower using the id of the request. If the id is not found, was already approved, or was already denied, a 404 error will be returned.
+        )
+
+    [109] => Array
+        (
+            [h1] => Group Users
+            [h2] => Hidden Items [/users/hidden/{section}{?type}]
+            [h3] => Get hidden items [GET]
+            [h4] => 🔒 OAuth Required 📄 Pagination ✨ Extended Info
+            [p] => Get hidden items for a section. This will return an array of standard media objects. You can optionally limit the type of results to return.
+        )
+
+    [110] => Array
+        (
+            [h1] => Group Users
+            [h2] => Add Hidden Items [/users/hidden/{section}]
+            [h3] => Add hidden items [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Hide items for a specific section. Here's what type of items can hidden for each section.
+        )
+
+    [111] => Array
+        (
+            [h1] => Group Users
+            [h2] => Remove Hidden Items [/users/hidden/{section}/remove]
+            [h3] => Remove hidden items [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Unhide items for a specific section. Here's what type of items can unhidden for each section.
+        )
+
+    [112] => Array
+        (
+            [h1] => Group Users
+            [h2] => Likes [/users/likes/{type}]
+            [h3] => Get likes [GET]
+            [h4] => 🔒 OAuth Required 📄 Pagination
+            [p] => Get items a user likes. This will return an array of standard media objects. You can optionally limit the type of results to return.
+        )
+
+    [113] => Array
+        (
+            [h1] => Group Users
+            [h2] => Profile [/users/{id}]
+            [h3] => Get user profile [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Get a user's profile information. If the user is private, info will only be returned if you send OAuth and are either that user or an approved follower. Adding ?extended=vip will return some additional VIP related fields so you can display the user's Trakt VIP status and year count.
+        )
+
+    [114] => Array
+        (
+            [h1] => Group Users
+            [h2] => Collection [/users/{id}/collection/{type}]
+            [h3] => Get collection [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Get all collected items in a user's collection. A collected item indicates availability to watch digitally or on physical media.
+        )
+
+    [115] => Array
+        (
+            [h1] => Group Users
+            [h2] => Comments [/users/{id}/comments/{comment_type}/{type}]
+            [h3] => Get comments [GET]
+            [h4] => 🔓 OAuth Optional 📄 Pagination ✨ Extended Info
+            [p] => Returns comments a user has posted sorted by most recent.
+        )
+
+    [116] => Array
+        (
+            [h1] => Group Users
+            [h2] => Lists [/users/{id}/lists]
+            [h3] => Get a user's custom lists [GET]
+            [h4] => 🔓 OAuth Optional
+            [p] => Returns all custom lists for a user. Use the /users/:id/lists/:list_id/items method to get the actual items a specific list contains.
+        )
+
+    [117] => Array
+        (
+            [h1] => Group Users
+            [h2] => Lists [/users/{id}/lists]
+            [h3] => Create custom list [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Create a new custom list. The name is the only required field, but the other info is recommended to ask for.
+        )
+
+    [118] => Array
+        (
+            [h1] => Group Users
+            [h2] => List [/users/{id}/lists/{list_id}]
+            [h3] => Get custom list [GET]
+            [h4] => 🔓 OAuth Optional
+            [p] => Returns a single custom list. Use the /users/:id/lists/:list_id/items method to get the actual items this list contains.
+        )
+
+    [119] => Array
+        (
+            [h1] => Group Users
+            [h2] => List [/users/{id}/lists/{list_id}]
+            [h3] => Update custom list [PUT]
+            [h4] => 🔒 OAuth Required
+            [p] => Update a custom list by sending 1 or more parameters. If you update the list name, the original slug will still be retained so existing references to this list won't break.
+        )
+
+    [120] => Array
+        (
+            [h1] => Group Users
+            [h2] => List [/users/{id}/lists/{list_id}]
+            [h3] => Delete a user's custom list [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove a custom list and all items it contains.
+        )
+
+    [121] => Array
+        (
+            [h1] => Group Users
+            [h2] => List Like [/users/{id}/lists/{list_id}/like]
+            [h3] => Like a list [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Votes help determine popular lists. Only one like is allowed per list per user.
+        )
+
+    [122] => Array
+        (
+            [h1] => Group Users
+            [h2] => List Like [/users/{id}/lists/{list_id}/like]
+            [h3] => Remove like on a list [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove a like on a list.
+        )
+
+    [123] => Array
+        (
+            [h1] => Group Users
+            [h2] => List Items [/users/{id}/lists/{list_id}/items/{type}]
+            [h3] => Get items on a custom list [GET]
+            [h4] => 🔓 OAuth Optional 📄 Pagination Optional ✨ Extended Info
+            [p] => Get all items on a custom list. Items can be movies, shows, seasons, episodes, or people.
+        )
+
+    [124] => Array
+        (
+            [h1] => Group Users
+            [h2] => Add List Items [/users/{id}/lists/{list_id}/items]
+            [h3] => Add items to custom list [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Add one or more items to a custom list. Items can be movies, shows, seasons, episodes, or people.
+        )
+
+    [125] => Array
+        (
+            [h1] => Group Users
+            [h2] => Remove List Items [/users/{id}/lists/{list_id}/items/remove]
+            [h3] => Remove items from custom list [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => Remove one or more items from a custom list.
+        )
+
+    [126] => Array
+        (
+            [h1] => Group Users
+            [h2] => List Comments [/users/{id}/lists/{list_id}/comments/{sort}]
+            [h3] => Get all list comments [GET]
+            [h4] => 📄 Pagination
+            [p] => Returns all top level comments for a list. By default, the newest comments are returned first.
+        )
+
+    [127] => Array
+        (
+            [h1] => Group Users
+            [h2] => Follow [/users/{id}/follow]
+            [h3] => Follow this user [POST]
+            [h4] => 🔒 OAuth Required
+            [p] => If the user has a private profile, the follow request will require approval (approved_at will be null). If a user is public, they will be followed immediately (approved_at will have a date).
+        )
+
+    [128] => Array
+        (
+            [h1] => Group Users
+            [h2] => Follow [/users/{id}/follow]
+            [h3] => Unfollow this user [DELETE]
+            [h4] => 🔒 OAuth Required
+            [p] => Unfollow someone you already follow.
+        )
+
+    [129] => Array
+        (
+            [h1] => Group Users
+            [h2] => Followers [/users/{id}/followers]
+            [h3] => Get followers [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Returns all followers including when the relationship began.
+        )
+
+    [130] => Array
+        (
+            [h1] => Group Users
+            [h2] => Following [/users/{id}/following]
+            [h3] => Get following [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Returns all user's they follow including when the relationship began.
+        )
+
+    [131] => Array
+        (
+            [h1] => Group Users
+            [h2] => Friends [/users/{id}/friends]
+            [h3] => Get friends [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Returns all friends for a user including when the relationship began. Friendship is a 2 way relationship where each user follows the other.
+        )
+
+    [132] => Array
+        (
+            [h1] => Group Users
+            [h2] => History [/users/{id}/history/{type}/{item_id}{?start_at,end_at}]
+            [h3] => Get watched history [GET]
+            [h4] => 🔓 OAuth Optional 📄 Pagination ✨ Extended Info
+            [p] => Returns movies and episodes that a user has watched, sorted by most recent. You can optionally limit the type to movies or episodes. The id (64-bit integer) in each history item uniquely identifies the event and can be used to remove individual events by using the /sync/history/remove method. The action will be set to scrobble, checkin, or watch.
+        )
+
+    [133] => Array
+        (
+            [h1] => Group Users
+            [h2] => Ratings [/users/{id}/ratings/{type}/{rating}]
+            [h3] => Get ratings [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Get a user's ratings filtered by type. You can optionally filter for a specific rating between 1 and 10. Send a comma separated string for rating if you need multiple ratings.
+        )
+
+    [134] => Array
+        (
+            [h1] => Group Users
+            [h2] => Watchlist [/users/{id}/watchlist/{type}]
+            [h3] => Get watchlist [GET]
+            [h4] => 🔓 OAuth Optional 📄 Pagination Optional ✨ Extended Info
+            [p] => Returns all items in a user's watchlist filtered by type.
+        )
+
+    [135] => Array
+        (
+            [h1] => Group Users
+            [h2] => Watching [/users/{id}/watching]
+            [h3] => Get watching [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Returns a movie or episode if the user is currently watching something.  If they are not, it returns no data and a 204 HTTP status code.
+        )
+
+    [136] => Array
+        (
+            [h1] => Group Users
+            [h2] => Watched [/users/{id}/watched/{type}]
+            [h3] => Get watched [GET]
+            [h4] => 🔓 OAuth Optional ✨ Extended Info
+            [p] => Returns all movies or shows a user has watched sorted by most plays. If type is set to shows and you add ?extended=noseasons to the URL, it won't return season or episode info.
+        )
+
+    [137] => Array
+        (
+            [h1] => Group Users
+            [h2] => Stats [/users/{id}/stats]
+            [h3] => Get stats [GET]
+            [h4] => 🔓 OAuth Optional
+            [p] => Returns stats about the movies, shows, and episodes a user has watched, collected, and rated.
+        )
+
+)
