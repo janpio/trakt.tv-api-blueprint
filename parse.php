@@ -395,8 +395,8 @@ function getReturnTypes($text) {
 		// show
 		// 'Show' => array('Returns a single shows'),
 		'List of Show' => array('Returns the most popular shows', 'Returns related and similar shows', 'Personalized show recommendations'),
-		'Episode with data: List of object (includes Episode, Show)' => array('Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres'),
-		'Show with data: List of object (includes Show)' => array('Returns all shows being', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns all shows updated'),
+		'List of "Episode with data": List of object (includes Episode, Show)' => array('Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres'),
+		'List of "Show with data": List of object (includes Show)' => array('Returns all shows being', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns all shows updated'),
 		'List of Season' => array('Returns all seasons'),
 		'Episode' => array('Returns the next scheduled to air episode', 'Returns the most recently aired episode', 'Returns a single episode'),
 		'List of Episode' => array('Returns all episodes'),
@@ -404,31 +404,32 @@ function getReturnTypes($text) {
 		// movie
 		'Movie' => array('Returns a single movie'),
 		'List of Movie' => array('Returns the most popular movies', 'Returns related and similar movies', 'Personalized movie recommendations'),
-		'Movie with data: List of object (includes Movie)' => array('Returns all movies with a', 'Returns all movies being ', 'Returns all movies updated', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies'),
+		'List of "Movie with data": List of object (includes Movie)' => array('Returns all movies with a', 'Returns all movies being ', 'Returns all movies updated', 'Returns the most played (a single user can watch multiple times) movies', 'Returns the most watched (unique users) movies', 'Returns the most collected (unique users) movies', 'Returns the most anticipated movies', 'Returns the top 10 grossing movies'),
 		
 		// comment
 		'Comment' => array('Returns a single comment', 'Add a new comment', 'Update a single comment', 'Add a new reply'),
-		'List of Comment' => array('Returns all top level comments', 'Returns comments', 'Returns all replies'),
+		'List of Comment' => array('Returns all top level comments', 'Returns all replies'),
+		'List of "Comment with data": List of object (includes Comment and commented thing)' => array('Returns comments a user'),
 		
 		// rating
-		'List of Rating (object with Movie, Show, Season, or Episode)' => array('Get a user\'s ratings'),
+		'List of Rating (object with Movie | Show | Season, Show | Episode, Show)' => array('Get a user\'s ratings'),
 		
 		// user
 		'User' => array('Get a user\'s profile'),
 		'List of User' => array('Returns all users'),
 		
 		// follow
-		'List of Follow-request' => array('List a user\'s pending follow requests'),
-		'Follower' => array('Approve a follower', 'If the user has a private profile'),
-		'List of Followers/ing (object with User)' => array('Returns all followers', 'Returns all user\'s they follow'), // probably two different responses?
+		'List of Follow-Request' => array('List a user\'s pending follow requests'),
+		'Follower (object with User)' => array('Approve a follower', 'If the user has a private profile'),
+		'List of Follower/ing (object with User)' => array('Returns all followers', 'Returns all user\'s they follow'), // probably two different responses?
 		'List of Friend (object with User)' => array('Returns all friends'),
 		
 		// list
 		'List' => array('Returns a single custom list', 'Create a new custom list', 'Update a custom list'),
 		'List of List' => array('Returns all lists', 'Returns all custom lists'),
-		'List of Listed item (object with Movie, Show, Episode, Person or List)' => array('Get all items on a custom list'),
-		'List of Collected item (object with Movie, Show, Season, or Episode)' => array('Get all collected items'),
-		'List of Watchlisted item (object with Movie, Show, Season, or Episode)' => array('Returns all items in a user\'s watchlist'),
+		'List of Listed item (object with Movie | Show | Season, Show | Episode, Show | Person)' => array('Get all items on a custom list'),
+		'List of Collected item (object with Movie | Show, Season)' => array('Get all collected items'),
+		'List of Watchlisted item (object with Movie | Show | Season, Show | Episode, Show)' => array('Returns all items in a user\'s watchlist'),
 		
 		// people
 		'Person' => array('Returns a single person'),
@@ -437,27 +438,31 @@ function getReturnTypes($text) {
 		'Roles (object of cast (List of Show) + crew (object of List of Show))' => array('Returns all shows where this person'),
 		
 		// hidden
-		'List of Hidden item (object with Movie, Show, Episode)' => array('Get hidden items'),
-		'List of Liked item (object with Comment, List)' => array('Get items a user likes'),
+		'List of Hidden item (object with Movie | Show | Episode)' => array('Get hidden items'),
+		// liked
+		'List of Liked item (object with Comment | List)' => array('Get items a user likes'),
 	
 		// scrobble
-		'Scrobble (object with Movie or Episode)' => array('Use this method when the video'),
-		'List of Playback (object with Movie | object with Episode, Show' => array('Whenever a scrobble is paused'),
+		'Scrobble (object with Movie | object with Episode, Show)' => array('Use this method when the video'),
+		'List of Playback (object with Movie | object with Episode, Show)' => array('Whenever a scrobble is paused'),
 		
 		// watch
-		'Watching (object with Movie, Episode)' => array('Returns a movie or episode if the user is currently watching '),
+		'Watching (object with Movie | object with Episode, Show)' => array('Returns a movie or episode if the user is currently watching '),
 		'List of Watched (object with Movie | object with Show, List of Season)' => array('Returns all movies or shows a user has watched'), 
-		'History (object with Movie or Episode)' => array('Check into a movie or episode'),
-		'List of History (object with Movie or Episode)' => array('Returns movies and episodes that a user has watched'),
+		
+		// history
+		'History (object with Movie | object with Episode, Show)' => array('Check into a movie or episode'),
+		'List of History (object with Movie | object with Episode, Show)' => array('Returns movies and episodes that a user has watched'),
+		
+		// activity
 		'Activity (object with timestamps)' => array('Returns a list of dates when the user'),
 		
 		// progress
 		'Progress (object with List of Season, Episode (next_episode))' => array('Returns collection progress', 'Returns watched progress'),
-				
+		
 		// search
 		'List of Result (object with Movie | Show | Episode,Show | Person | List)' => array('Search', 'Lookup item'),
-
-				
+		
 		// master-data
 		'Certifications' => array('Get a list of all certifications'),
 		'List of Genre' => array('Get a list of all genres'),

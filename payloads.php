@@ -15,11 +15,15 @@ function getInnerLi2($key, $group, $thing, $name, $details) {
 	echo $details['intro'].'<br>';
 	if($details['method'] != 'DELETE') {
 		echo '└ '.getReturnTypes($details['intro']).' - '.count($details['pre']).' response examples:';
-		echo '<ol>';
-		foreach($details['pre'] as $pre) {
-			echo '<li><pre style="border:3px solid yellow;">'.$pre.'</pre></li>';
+		if(count($details['pre']) > 0) {
+			echo '<ol>';
+			foreach($details['pre'] as $pre) {
+				echo '<li><pre style="border:3px solid yellow;">'.$pre.'</pre></li>';
+			}
+			echo '</ol>';
+		} else {
+			echo "<br>";
 		}
-		echo '</ol>';
 	}
 	if($details['duplicate']) {
 		echo '⚠ Duplicate at <a href="#'.getIdString($details['duplicate'][0], $details['duplicate'][1], $details['duplicate'][2], $details['duplicate'][3]).'">'.$areas[$details['duplicate'][0]][0].' > '.$details['duplicate'][1].' > '.$details['duplicate'][2].' > '.$details['duplicate'][3].'</a><br>';

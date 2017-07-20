@@ -18,12 +18,13 @@
 	</li>
 </ul>
 
-<h2 id="models">Returned "Models"</h2>
+<h2 id="models">Returned Payloads</h2>
 
 <p>Each API endpoint has some information on what type of data it returns:</p>
 <ul>
 	<li>└ Foo = Returns one `Foo` object</li>
-	<li>└ Foo[] = Returns an array of `Foo` objects</li>
+	<li>└ List of Foo = Returns an array of `Foo` objects</li>
 	<li>└ object (includes Bar) = Returns a generic object with a `Bar` object inside</li>
-	<li>└ object[] (includes Bar) = Returns an array of generic objects with a `Bar` object inside each</li>
+	<li>└ List of object (includes Bar) = Returns an array of generic objects with a `Bar` object inside each</li>
+	<li>└ List of "Foo with data": List of object (includes Foo) = Many endpoints don't directly return the thing, but wrap it in an object that contains additional properties</li>
 </ul>
