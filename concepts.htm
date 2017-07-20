@@ -1,4 +1,4 @@
-<h3 id="concepts">Concepts</h3>
+<h2 id="concepts">Concepts</h2>
 <p>The API only <a href="http://docs.trakt.apiary.io/#introduction/terminology">defines some terms in „Terminology“</a>, but there is a lot more to understand what there is and how it is all connected:</p>
 <ul>
 	<li>There are <strong data-class="users">Users</strong> and objects: <strong data-class="movies">Movies</strong>, <strong data-class="shows">Shows</strong> with <strong data-class="seasons">Seasons</strong> and <strong data-class="episodes">Episodes</strong>.</li>
@@ -54,33 +54,3 @@
 	</li>
 </ul>
 <p>Use the checkboxes next to the terms to deactivate them in the list below. You can also set if they only should be deactivated or completely hidden. <label><i>Hide deactivated items:</i> <input id="hideDeactivated" type="checkbox" onchange="toggleHide(event);"></label> </p>
-
-<h3 id="emojis">Emojis Legend</h3>
-<p>These Emojis are used in the official documentation to indicate what functionality is offered by or needed for an endpoint.</p>
-<ul>
-	<li>📄 = <a href="http://docs.trakt.apiary.io/#introduction/pagination">Pagination</a>
-		<ul>
-			<li>📄? = optional</li>
-		</ul>
-	</li>
-	<li>✨ = <a href="http://docs.trakt.apiary.io/#introduction/extended-info">Extended Info</a>
-	</li>
-	<li>🎚 = <a href="http://docs.trakt.apiary.io/#introduction/filters">Filters</a>
-	</li>
-	<li>🔒 = <a href="http://docs.trakt.apiary.io/#reference/authentication-oauth">OAuth</a>
-		<ul>
-			<li>🔒? = optional</li>
-			<li>🔒! = required</li>
-		</ul>
-	</li>
-</ul>
-
-<h3 id="models">Returned "Models"</h3>
-
-<p>Each API endpoint has some information on what type of data it returns:</p>
-<ul>
-	<li>└ Foo = Returns one `Foo` object</li>
-	<li>└ Foo[] = Returns an array of `Foo` objects</li>
-	<li>└ object (includes Bar) = Returns a generic object with a `Bar` object inside</li>
-	<li>└ object[] (includes Bar) = Returns an array of generic objects with a `Bar` object inside each</li>
-</ul>
