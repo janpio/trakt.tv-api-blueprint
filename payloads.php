@@ -5,8 +5,11 @@ include('concepts.htm');
 
 include('parse.php');
 
+$payloads = array();
+
 function getInnerLi2($key, $group, $thing, $name, $details) {
 	global $areas;
+	global $payloads;
 	#$classname = getClassstring($name);
 	$idstring = getIdString($key, $group, $thing, $name);
 	echo '<li id="'.getIdString($key, $group, $thing, $name).'">';
@@ -14,8 +17,10 @@ function getInnerLi2($key, $group, $thing, $name, $details) {
 	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
 	if($details['method'] != 'DELETE') {
-		echo '└ '.getReturnTypes($details['intro']).' - '.count($details['pre']).' response examples:';
+		$returntype = getReturnTypes($details['intro']);
+		echo '└ '.$returntype.' - '.count($details['pre']).' response examples:';
 		if(count($details['pre']) > 0) {
+			$payloads[$returntype][$idstring] = $details['pre'];
 			echo '<ol>';
 			foreach($details['pre'] as $pre) {
 				echo '<li><pre style="border:3px solid yellow;">'.$pre.'</pre></li>';
@@ -51,4 +56,16 @@ foreach($areas as $key => $area) {
 		echo "</li>";
 	}
 	echo "</ul>";
+}
+echo "<h2 id='return-types'>Return Types</h2>";
+foreach($payloads as $model => $payload) {
+	echo "<h3>$model</h3>";
+	foreach($payload as $id => $pres) {
+		echo "<h4 id='$id'>$id</h4>";
+		echo '<ol id="'.$id.'">';
+		foreach($pres as $pre) {
+			echo '<li><pre style="border:3px solid yellow;">'.$pre.'</pre></li>';
+		}
+		echo '</ol>';
+	}
 }

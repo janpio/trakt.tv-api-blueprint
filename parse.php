@@ -522,7 +522,7 @@ function getInnerLi($key, $group, $thing, $name, $details) {
 	if($details['duplicate']) { echo ' data-duplicate="'.getIdString($details['duplicate'][0], $details['duplicate'][1], $details['duplicate'][2], $details['duplicate'][3]).'"'; }
 	echo '>';
 	echo '<a href="http://docs.trakt.apiary.io/#reference/'.getUrlString($group).'/'.getUrlString($thing).'/'.getUrlString($name).'">'.$name.'</a> '.getEmoji($details['emoji']).'<a class="anchor" href="#'.$idstring.'"></a><br>';
-	echo '<em title="'.$details['intro'].'">'.$details['method'].' '.$details['endpoint'].'</em><br>';
+	echo '<em>'.$details['method'].' '.$details['endpoint'].'</em><br>';
 	echo $details['intro'].'<br>';
 	if($details['method'] != 'DELETE') echo '└ '.getReturnTypes($details['intro']).' - <a href="payloads.php#'.$idstring.'">'.count($details['pre']).' response examples</a><br>';
 	if($details['duplicate']) {
