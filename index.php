@@ -30,7 +30,7 @@ showDOMNode($doc, $array);
 #echo "<pre>"; print_r($array);
 #exit;
 $output = print_r($array, true);
-file_put_contents('1_array_tag_value.txt', $output);
+file_put_contents('logs/1_array_tag_value.txt', $output);
 
 // filter array of all "nodes" to entries we are interested in (h1 = Group + h2,h3,h4,p)
 $results = array();
@@ -145,7 +145,7 @@ foreach($array as $element) {
 #print_r($results);
 #exit;
 $output = print_r($results, true);
-file_put_contents('2_interested_node_value.txt', $output);
+file_put_contents('logs/2_interested_node_value.txt', $output);
 
 /*
 foreach($results as $element) {
@@ -188,7 +188,7 @@ foreach($results as $element) {
 #print_r($results2);
 #exit;
 $output = print_r($results2, true);
-file_put_contents('3_array_h1_h2_h3.txt', $output);
+file_put_contents('logs/3_array_h1_h2_h3.txt', $output);
 
 
 // mangle data
@@ -229,7 +229,7 @@ foreach($results2 as $k => $v) {
 #print_r($results2);
 #exit;
 $output = print_r($results2, true);
-file_put_contents('4_mangled_data.txt', $output);
+file_put_contents('logs/4_mangled_data.txt', $output);
 
 // transform into multi-dimensional array
 $results3 = array('data' => array(), 'user' => array(), 'master-data' => array());
@@ -260,7 +260,7 @@ foreach($results2 as $_data) {
 #echo "<pre>";
 #print_r($results3);
 $output = print_r($results3, true);
-file_put_contents('5_multidimensional.txt', $output);
+file_put_contents('logs/5_multidimensional.txt', $output);
 #exit;
 
 // define areas
@@ -305,7 +305,7 @@ foreach($duplicates as $foo) {
 	$results3[$two[0]][$two[1]][$two[2]][$two[3]]['duplicate'] = $one;
 }
 $output = print_r($results3, true);
-file_put_contents('6_multidimensional_with_duplicates.txt', $output);
+file_put_contents('logs/6_multidimensional_with_duplicates.txt', $output);
 
 // output html
 function getEmoji($emoji) {
