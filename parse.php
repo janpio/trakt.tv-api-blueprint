@@ -393,7 +393,7 @@ function getReturnTypes($text) {
 	$returns = array();
 	$possible = array(
 		// show
-		// 'Show' => array('Returns a single shows'),
+		'Show' => array('Returns a single shows'),
 		'List of Show' => array('Returns the most popular shows', 'Returns related and similar shows', 'Personalized show recommendations'),
 		'List of "Episode with data": List of object (includes Episode, Show)' => array('Returns all shows airing', 'Returns all new show premieres', 'Returns all show premieres'),
 		'List of "Show with data": List of object (includes Show)' => array('Returns all shows being', 'Returns the most played (a single user can watch multiple episodes multiple times) shows', 'Returns the most watched (unique users) shows', 'Returns the most collected (unique users) shows', 'Returns the most anticipated shows', 'Returns all shows updated'),

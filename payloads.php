@@ -18,7 +18,7 @@ function getInnerLi2($key, $group, $thing, $name, $details) {
 	echo $details['intro'].'<br>';
 	if($details['method'] != 'DELETE') {
 		$returntype = getReturnTypes($details['intro']);
-		echo '└ '.$returntype.' - '.count($details['pre']).' response examples:';
+		echo '└ <strong>'.$returntype.'</strong> - '.count($details['pre']).' response examples:';
 		if(count($details['pre']) > 0) {
 			$payloads[$returntype][$idstring] = $details['pre'];
 			echo '<ol>';
